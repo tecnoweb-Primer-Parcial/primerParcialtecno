@@ -84,20 +84,10 @@ public class DClientes {
     
     public boolean regClient(){
         try {
-            Statement st = m_con.createStatement();
-            String s_sql = "insert into company(nombre,nit,razonSocial,sitiWeb,direccion,telf,fax,ubicacion,sector,tipo,estado) \n"+
-                    "values('"+this.getNombreC()+"','"+this.getNitC()+"','"+this.getRazonsocial()+"','"+this.getSitioweb()+"','"+this.getDireccion()+"',"+this.getTelf()+","+this.getFax()+",'"+this.getUbicacion()+"','"+this.getSector()+"','"+this.getTipo()+"',true)";
-            /*Statement stC = m_con.createStatement();
-            String s_sqlC = "select company.id from company where company.nombre="+this.getNombreC();
-            ResultSet r_resC = stC.executeQuery(s_sqlC);
-            while(r_resC.next()){
-                DClientes i_cliente = new DClientes();
-                i_cliente.setIdComp(r_resC.getInt(1));
-            }*/
             Statement st1 = m_con.createStatement();
-            String s_sql1 = "insert into contactPrincipal(nombre,iniciales,cel,email,emailConf,observaciones,idemployed,idCompany) \n"+
-                    "values ('"+this.getNombreContact()+"','"+this.getIniciales()+"',"+this.getCel()+",'"+this.getEmail()+"','"+this.getEmailConf()+"','"+this.getObservaciones()+"',"+this.getIdEmployed()+",2)";
-            if(st.executeUpdate(s_sql)==1 && st1.executeUpdate(s_sql1)==1){
+            String s_sql1 = "insert into contactPrincipal(nombre,iniciales,cel,email,emailConf,observaciones,idemployed,idCompany,estado) \n"+
+                    "values ('"+this.getNombreContact()+"','"+this.getIniciales()+"',"+this.getCel()+",'"+this.getEmail()+"','"+this.getEmailConf()+"','"+this.getObservaciones()+"',"+this.getIdEmployed()+","+this.getIdCompany()+",true)";
+            if(st1.executeUpdate(s_sql1)==1){
                 System.out.println("Cliente registrado exitosamente!");
                 return true;
             }
@@ -110,27 +100,10 @@ public class DClientes {
     }
     
     public boolean updateClient(){
-        Statement st;
-        Statement stmt;
-        ResultSet rs;
         Statement st1;
         Statement stmt1;
         ResultSet rs1;
         try {
-            st = m_con.createStatement();
-            stmt = m_con.createStatement();
-            String id = "";
-            rs = stmt.executeQuery("select id from company where company.id="+getIdComp());
-            while(rs.next()){
-                id = rs.getString(1);
-                System.out.println("valor de la columna de identidad "+id);
-            }
-            rs.close();
-            stmt.close();
-            String s_sql = "update company \n"+
-                    "set nombre='"+getNombreC()+"',nit='"+getNitC()+"',razonsocial='"+getRazonsocial()+"',sitiweb='"+getSitioweb()+"',direccion='"+getDireccion()+"',telf="+getTelf()+",fax="+getFax()+",ubicacion='"+getUbicacion()+"',sector='"+getSector()+"',tipo='"+getTipo()+"' \n"+
-                    "where company.id="+getIdComp();
-            
             st1 = m_con.createStatement();
             stmt1 = m_con.createStatement();
             String id1 = "";
@@ -143,7 +116,7 @@ public class DClientes {
             stmt1.close();
             String s_sql1 = "update contactprincipal \n"+
                     "set nombre='"+getNombreContact()+"',iniciales='"+getIniciales()+"',cel="+getCel()+",email='"+getEmail()+"',emailconf='"+getEmailConf()+"',observaciones='"+getObservaciones()+"' where contactprincipal.id="+getIdContact();
-            if(st.executeUpdate(s_sql)==1 && st1.executeUpdate(s_sql1)==1){
+            if(st1.executeUpdate(s_sql1)==1){
                 System.out.println("Se edito con exito");
                 return true;
             }
@@ -159,9 +132,9 @@ public class DClientes {
         Statement st;
         try {
             st = m_con.createStatement();
-            String s_sql = "update company \n"+
+            String s_sql = "update contactprincipal \n"+
                     "set estado=false \n"+
-                    "where id="+getIdComp();
+                    "where id="+getIdContact();
             if(st.executeUpdate(s_sql)==1){
                 System.out.println("Cliente eliminado");
                 return true;
@@ -371,17 +344,6 @@ public class DClientes {
        DClientes cli=new DClientes();
     
        //Registrar empleado
-       /*cli.setNombreC("empresa x");
-       cli.setNitC("7845124578");
-       cli.setRazonsocial("SA");
-       cli.setSitioweb("google.com");
-       cli.setDireccion("B la cuchilla");
-       cli.setTelf(3557284);
-       cli.setFax(3557284);
-       cli.setUbicacion("4to anillo");
-       cli.setSector("frial");
-       cli.setTipo("privado");*/
-       
        //datos contacto principal
        /*cli.setNombreContact("cristhian vargas");
        cli.setIniciales("cvq");
@@ -390,33 +352,24 @@ public class DClientes {
        cli.setEmailConf("cristian@gmail.com");
        cli.setObservaciones("ninguna");
        cli.setIdEmployed(2);
+       cli.setIdCompany(4);
        
         System.out.println(cli.regClient());*/
        
        //editar cliente
-       /*cli.setNombreC("sra martha");
-       cli.setNitC("78452368");
-       cli.setRazonsocial("SRL");
-       cli.setSitioweb("ggogqweli.com");
-       cli.setDireccion("la cuadrilla");
-       cli.setTelf(4258785);
-       cli.setFax(96365286);
-       cli.setUbicacion("que te");
-       cli.setSector("carne");
-       cli.setTipo("particular");
-       cli.setNombreContact("maria juana");
-       cli.setIniciales("DGT");
+       /*cli.setNombreContact("maria juana ortiz");
+       cli.setIniciales("MJO");
        cli.setCel(65328947);
-       cli.setEmail("brqewuto@gmail.com");
-       cli.setEmailConf("buqewr@gmail.com");
-       cli.setObservaciones("nwada");
+       cli.setEmail("buenoi@gmail.com");
+       cli.setEmailConf("buenito@gmail.com");
+       cli.setObservaciones("sin novedades");
        cli.setIdComp(6);
        cli.setIdContact(4);
-        System.out.println(cli.updateClient());*/
+       System.out.println(cli.updateClient());*/
        
        //eliminar un cliente
-       cli.setIdComp(3);
-        System.out.println(cli.delClient());
+       cli.setIdContact(3);
+       System.out.println(cli.delClient());
 
        System.out.println(cli.listClients());
        for (int i = 0; i < cli.listClients().size(); i++) {
