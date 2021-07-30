@@ -368,8 +368,8 @@ public class DClientes {
        System.out.println(cli.updateClient());*/
        
        //eliminar un cliente
-       cli.setIdContact(3);
-       System.out.println(cli.delClient());
+       //cli.setIdContact(3);
+       //System.out.println(cli.delClient());
 
        System.out.println(cli.listClients());
        for (int i = 0; i < cli.listClients().size(); i++) {

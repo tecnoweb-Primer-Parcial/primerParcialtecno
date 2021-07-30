@@ -322,24 +322,24 @@ public class DCotizaciones {
        DCotizaciones cli=new DCotizaciones();
        
        //registrar una cotizacion
-       /*cli.setCod("OMX-242");
+       cli.setCod("OMX-243");
        cli.setCliente("Sofia");
-       cli.setFechaCot("2021-07-25");
-       cli.setEjecutivo("Kelly Escobar");
+       cli.setFechaCot("2021-07-26");
+       cli.setEjecutivo("Jorge torres");
        cli.setTarifa(2000);
        cli.setIdservice(2);
        cli.setIdStatus(2);
        cli.setIdcom(3);
-        System.out.println(cli.regCotizaciones());*/
+       System.out.println(cli.regCotizaciones());
        
        //actualizar una cotizacion
-       cli.setCod("OMX-240");
+       /*cli.setCod("OMX-240");
        cli.setCliente("sr maria");
        cli.setFechaCot("2021-07-24");
        cli.setEjecutivo("Kelly escobar");
        cli.setTarifa(2500);
        cli.setId(5);
-        System.out.println(cli.editCotizaciones());
+        System.out.println(cli.editCotizaciones());*/
 
        System.out.println(cli.listCotizaciones());
        for (int i = 0; i < cli.listCotizaciones().size(); i++) {
