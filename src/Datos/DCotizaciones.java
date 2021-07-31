@@ -32,6 +32,15 @@ public class DCotizaciones {
     private int tarifa;
     private int idservice;
     private int idStatus;
+    private int idcom;
+
+    public int getIdcom() {
+        return idcom;
+    }
+
+    public void setIdcom(int idcom) {
+        this.idcom = idcom;
+    }
     
     public Conexion getM_Conexion() {
         return m_Conexion;
@@ -126,27 +135,26 @@ public class DCotizaciones {
       this.m_Conexion = Conexion.getInstancia();
       this.m_con = m_Conexion.getConexion();
     }
-     public ArrayList<DCotizaciones> listCotizaciones(int index){
+     public ArrayList<DCotizaciones> listCotizaciones(){
         Statement st;
         ArrayList<DCotizaciones> l_cotizaciones = new ArrayList<>();
         try {
                 st = m_con.createStatement();
                 String s_sql = "";
-                s_sql = "select cotizaciones.cod,cotizaciones.cliente,cotizaciones.fechaCot,cotizaciones.ejecutivo,"
-                        + "cotizaciones.tarifa,cotizaciones.idservice,cotizaciones.idStatus \n"+
-                        "from cotizaciones, services, status \n";
+                s_sql = "select cotizaciones.cod,cotizaciones.cliente,cotizaciones.fechaCot,cotizaciones.ejecutivo, \n"
+                        + "cotizaciones.tarifa,cotizaciones.idservice \n"+
+                        "from cotizaciones, services, status \n"+
+                        "where cotizaciones.idservice=services.id and cotizaciones.isstatus=status.id";
                 ResultSet r_res = st.executeQuery(s_sql);
                 
                 while(r_res.next()){
                     DCotizaciones i_cotizaciones = new DCotizaciones();
-                    i_cotizaciones.setId(r_res.getInt(1));
-                    i_cotizaciones.setCod(r_res.getString(2));
-                    i_cotizaciones.setCliente(r_res.getString(3));
-                    i_cotizaciones.setTarifa(r_res.getInt(4));
-                    i_cotizaciones.setEjecutivo(r_res.getString(5));
-                    i_cotizaciones.setFechaCot(r_res.getString(6));
-                    i_cotizaciones.setIdservice(r_res.getInt(7));
-                    i_cotizaciones.setIdStatus(r_res.getInt(8));
+                    i_cotizaciones.setCod(r_res.getString(1));
+                    i_cotizaciones.setCliente(r_res.getString(2));
+                    i_cotizaciones.setFechaCot(r_res.getString(3));
+                    i_cotizaciones.setEjecutivo(r_res.getString(4));
+                    i_cotizaciones.setTarifa(r_res.getInt(5));
+                    i_cotizaciones.setIdservice(r_res.getInt(6));
                     l_cotizaciones.add(i_cotizaciones);
                 }
                 return l_cotizaciones;
@@ -172,9 +180,8 @@ public class DCotizaciones {
             stmr = m_con.createStatement();
             stmd = m_con.createStatement();
             id="";      
-            String s_sql="insert into producto (cod,cliente,fechaCot,ejecutivo,tarifa,idservice,idStatus)\n"
-                    + " values ('" + getCod()+"',"+ getCliente()+","+ getFechaCot()+","
-                    + "'" +getEjecutivo() +"','"+ getIdservice()+"','"+getIdStatus()+"','";
+            String s_sql="insert into producto (cod,cliente,fechaCot,ejecutivo,tarifa,idservice,isStatus,idcom)\n"
+                    + " values ('" + getCod()+"',"+ getCliente()+","+ getFechaCot()+"," + "'" +getEjecutivo() + "'" +getTarifa()+"','"+ getIdservice()+"','"+getIdStatus()+"','"+ "'" +getIdcom()+ "'";
             
             
 //            String s_sql="insert into producto (descripcion,precio,stock,medida,marca,modelo,anio,estado,fecha,hora,deleted_at,created_at,updated_at)\n" +
@@ -235,18 +242,18 @@ public class DCotizaciones {
                     id = rs.getString(1);       // Recuperar el valor de columna
                     System.out.println("Valor de columna de identidad = " + id);
                                   // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
+            }
+            rs.close();                       // Cerrar el ResultSet                
+            stmt.close();   
             
                 
-           int idp = Integer.parseInt(id); 
-            System.out.println("Valor de columna de identidad = " + idp);
+           //int idp = Integer.parseInt(id); 
+            //System.out.println("Valor de columna de identidad = " + idp);
            String s_sql="UPDATE cotizaciones \n" +
-                         "SET  cod='"+getCod()+"', cliente="+getCliente()+", \n" +
-                         "fechaCot='"+getFechaCot()+"',ejecutivo='"+getEjecutivo()+"',\n" 
-                   +"tarifa='"+getTarifa()+"',idservice='"+getIdservice()+"',idStatus='"+getIdStatus()+"', \n"+
-                         "WHERE id="+idp; 
+                         "SET  cod='"+getCod()+"', cliente='"+getCliente()+"', \n" +
+                         "fechacot='"+getFechaCot()+"',ejecutivo='"+getEjecutivo()+"',\n" 
+                   +"tarifa="+getTarifa()+" \n"+
+                         "WHERE id="+getId(); 
 //            String s_sql="UPDATE users \n" +
 //                         "SET  nombre='roger', \n" +
 //                         "usuario='roger',email='rogetp7845@hotmail.com', updated_at=now() \n"+
@@ -254,7 +261,7 @@ public class DCotizaciones {
            int n_res1= st.executeUpdate(s_sql);
             
                      
-            if ((n_res1==1)){
+            if (n_res1==1){
                 System.out.println("editado exitoso");
                 return true;
             }
@@ -308,5 +315,36 @@ public class DCotizaciones {
             Logger.getLogger(DCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+     
+    public static void main(String[] args) {
+       // TODO code application logic here
+       DCotizaciones cli=new DCotizaciones();
+       
+       //registrar una cotizacion
+       cli.setCod("OMX-243");
+       cli.setCliente("Sofia");
+       cli.setFechaCot("2021-07-26");
+       cli.setEjecutivo("Jorge torres");
+       cli.setTarifa(2000);
+       cli.setIdservice(2);
+       cli.setIdStatus(2);
+       cli.setIdcom(3);
+       System.out.println(cli.regCotizaciones());
+       
+       //actualizar una cotizacion
+       /*cli.setCod("OMX-240");
+       cli.setCliente("sr maria");
+       cli.setFechaCot("2021-07-24");
+       cli.setEjecutivo("Kelly escobar");
+       cli.setTarifa(2500);
+       cli.setId(5);
+        System.out.println(cli.editCotizaciones());*/
+
+       System.out.println(cli.listCotizaciones());
+       for (int i = 0; i < cli.listCotizaciones().size(); i++) {
+           System.out.println(cli.listCotizaciones().get(i).getEjecutivo());
+       }
+    
     }
 }
