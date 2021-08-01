@@ -164,57 +164,20 @@ public class DCotizaciones {
         }
      }
      public boolean regCotizaciones() {
-        Statement st;
-        Statement stmt;
-        Statement stmr;
-        Statement stmd;
-        ResultSet rs;
-        ResultSet rr;
-        
-        String id;
-        String idr = "";
-       
         try {
-            st=m_con.createStatement();
-            stmt = m_con.createStatement();
-            stmr = m_con.createStatement();
-            stmd = m_con.createStatement();
-            id="";      
-            String s_sql="insert into producto (cod,cliente,fechaCot,ejecutivo,tarifa,idservice,isStatus,idcom)\n"
-                    + " values ('" + getCod()+"',"+ getCliente()+","+ getFechaCot()+"," + "'" +getEjecutivo() + "'" +getTarifa()+"','"+ getIdservice()+"','"+getIdStatus()+"','"+ "'" +getIdcom()+ "'";
+            Statement st1 = m_con.createStatement();
+            String s_sql="INSERT INTO public.cotizaciones(\n" +
+"                       cod, cliente, fechacot, ejecutivo, tarifa, idservice, isstatus, idcom)\n"
+                    + " values ('" + getCod()+"','"+ getCliente()+"','"+ getFechaCot()+"','" +getEjecutivo() + "'," +getTarifa()+","+ getIdservice()+","+getIdStatus()+","+ getIdcom()+ ")";
             
-            
-//            String s_sql="insert into producto (descripcion,precio,stock,medida,marca,modelo,anio,estado,fecha,hora,deleted_at,created_at,updated_at)\n" +
-//                        "values\n" +
-//                        "('Huntas',800,5,'120 gramos','YOITOKY','COROLLA','1995','A',now(),now(),now(),now(),now())";
-//            
-            int n_res= st.executeUpdate(s_sql);
-            
-            rs = stmt.executeQuery("select max(id) from cotizaciones ");
-            while (rs.next()) {               // Posicionar el cursor                
-                    id = rs.getString(1);       // Recuperar el valor de columna
-                    System.out.println("Valor de columna de identidad = " + id);
-                                  // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
-            
-                
-           int idp = Integer.parseInt(id); 
-           System.out.println("Valor de columna de identidad = " + idp);
-           
-           
-            
-            if ((n_res==1)){
-                System.out.println("insertado exitoso");
+            if(st1.executeUpdate(s_sql)==1){
+                System.out.println("Cotización registrado exitosamente!");
                 return true;
             }
-            
-            System.out.println("no se pudo insertar en el modelo");
+            System.out.println("No se pudo registrar la Cotización!");
             return false;
-        } catch (SQLException ex) {
-            
-            Logger.getLogger(DCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(DCotizaciones.class.getName()).log(Level.SEVERE,null,e);
             return false;
         }
    
@@ -249,10 +212,10 @@ public class DCotizaciones {
                 
            //int idp = Integer.parseInt(id); 
             //System.out.println("Valor de columna de identidad = " + idp);
-           String s_sql="UPDATE cotizaciones \n" +
+           String s_sql="UPDATE  cotizaciones \n" +
                          "SET  cod='"+getCod()+"', cliente='"+getCliente()+"', \n" +
                          "fechacot='"+getFechaCot()+"',ejecutivo='"+getEjecutivo()+"',\n" 
-                   +"tarifa="+getTarifa()+" \n"+
+                        +"tarifa="+getTarifa()+" \n"+
                          "WHERE id="+getId(); 
 //            String s_sql="UPDATE users \n" +
 //                         "SET  nombre='roger', \n" +
@@ -275,44 +238,19 @@ public class DCotizaciones {
         } 
     } 
      public boolean delCotizaciones (){
-        Statement  st;
-        Statement stmt;
-        ResultSet rs;
-        String id;
+         Statement st;
         try {
-           st=m_con.createStatement();
-            stmt = m_con.createStatement();
-            id="";      
-            String s_sql="UPDATE cotizaciones\n" +
-                         "SET estado='false'\n" +
-                         "WHERE id="+getId(); 
-            /*String s_sql="UPDATE cliente\n" +
-                         "SET del_estado='A' \n" +
-                         "WHERE idCliente=1";*/
-            int n_res= st.executeUpdate(s_sql);
-            
-            rs = stmt.executeQuery("select id from cotizaciones where id="+getId());
-            while (rs.next()) {               // Posicionar el cursor                
-                    id = rs.getString(1);       // Recuperar el valor de columna
-                    System.out.println("Valor de columna de identidad = " + id);
-                                  // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
-            
-                
-           int idp = Integer.parseInt(id); 
-           System.out.println("Valor de columna de identidad = " + idp);
-           
-            if ((n_res==1)){
-                System.out.println("eliminado exitoso");
+            st = m_con.createStatement();
+            String s_sql = "DELETE FROM cotizaciones \n"+
+                           "where id="+getId();
+            if(st.executeUpdate(s_sql)==1){
+                System.out.println("Cotizacion eliminada");
                 return true;
             }
-            
-            System.out.println("no se pudo dar de baja la cotización en el modelo");
+            System.out.println("No se pudo eliminar la cotización");
             return false;
-        } catch (SQLException ex) {
-            Logger.getLogger(DCotizaciones.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(DCotizaciones.class.getName()).log(Level.SEVERE, null, e);
             return false;
         }
     }
@@ -322,15 +260,15 @@ public class DCotizaciones {
        DCotizaciones cli=new DCotizaciones();
        
        //registrar una cotizacion
-       cli.setCod("OMX-243");
-       cli.setCliente("Sofia");
-       cli.setFechaCot("2021-07-26");
-       cli.setEjecutivo("Jorge torres");
-       cli.setTarifa(2000);
-       cli.setIdservice(2);
-       cli.setIdStatus(2);
-       cli.setIdcom(3);
-       System.out.println(cli.regCotizaciones());
+       //cli.setCod("OMX-244");
+       //cli.setCliente("Sofia");
+       //cli.setFechaCot("2021-07-26");
+       //cli.setEjecutivo("Jorge torres");
+       //cli.setTarifa(2000);
+       //cli.setIdservice(2);
+       //cli.setIdStatus(2);
+       //cli.setIdcom(3);
+       //System.out.println(cli.regCotizaciones());
        
        //actualizar una cotizacion
        /*cli.setCod("OMX-240");
@@ -340,6 +278,10 @@ public class DCotizaciones {
        cli.setTarifa(2500);
        cli.setId(5);
         System.out.println(cli.editCotizaciones());*/
+       
+       //DELETE COTIZACIONES
+       cli.setId(8);
+       System.out.println(cli.delCotizaciones());
 
        System.out.println(cli.listCotizaciones());
        for (int i = 0; i < cli.listCotizaciones().size(); i++) {

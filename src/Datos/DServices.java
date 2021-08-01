@@ -98,14 +98,14 @@ public class DServices {
         this.status = status;
     }
    
-    public ArrayList<DServices> listServices(int index){
+    public ArrayList<DServices> listServices(){
         Statement st;
         ArrayList<DServices> l_services = new ArrayList<>();
         try {
                 st = m_con.createStatement();
                 String s_sql = "";
-                s_sql = "select services.nombre,services.codigo,services.descripcion,services.stado\n"+
-                        "from services\n";
+                s_sql = "SELECT id, nombre, codigo, descripcion, estado\n" +
+                        "FROM public.services\n";
                 ResultSet r_res = st.executeQuery(s_sql);
                 
                 while(r_res.next()){
@@ -123,162 +123,96 @@ public class DServices {
             return l_services;
         }
      }
-     public boolean regCotizaciones() {
-        Statement st;
-        Statement stmt;
-        Statement stmr;
-        Statement stmd;
-        ResultSet rs;
-        ResultSet rr;
-        
-        String id;
-        String idr = "";
-       
+     public boolean regServices() {
         try {
-            st=m_con.createStatement();
-            stmt = m_con.createStatement();
-            stmr = m_con.createStatement();
-            stmd = m_con.createStatement();
-            id="";      
-            String s_sql="insert into services (nombre,codigo,descripcion,estado)\n"
-                    + " values ('" + getName()+"',"+ getCodigo()+","+ getDescription()+","
-                    + "'" +isStatus()+"','";
+            Statement st1 = m_con.createStatement();
+            String s_sql="INSERT INTO public.services(\n" +
+                         "nombre, codigo, descripcion, estado)\n"
+                        +" values ('" + getName()+"','"+ getCodigo()+"','"+ getDescription()+"',true)";
             
-            
-//            String s_sql="insert into producto (descripcion,precio,stock,medida,marca,modelo,anio,estado,fecha,hora,deleted_at,created_at,updated_at)\n" +
-//                        "values\n" +
-//                        "('Huntas',800,5,'120 gramos','YOITOKY','COROLLA','1995','A',now(),now(),now(),now(),now())";
-//            
-            int n_res= st.executeUpdate(s_sql);
-            
-            rs = stmt.executeQuery("select max(id) from services ");
-            while (rs.next()) {               // Posicionar el cursor                
-                    id = rs.getString(1);       // Recuperar el valor de columna
-                    System.out.println("Valor de columna de identidad = " + id);
-                                  // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
-            
-                
-           int idp = Integer.parseInt(id); 
-           System.out.println("Valor de columna de identidad = " + idp);
-           
-           
-            
-            if ((n_res==1)){
-                System.out.println("insertado exitoso");
+            if(st1.executeUpdate(s_sql)==1){
+                System.out.println("Servicio registrado exitosamente!");
                 return true;
             }
-            
-            System.out.println("no se pudo insertar en el modelo");
+            System.out.println("No se pudo registrar el Servicio!");
             return false;
-        } catch (SQLException ex) {
-            
-            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE,null,e);
             return false;
         }
-   
     }
-     public boolean editCotizaciones() {
-        Statement  st;
-        Statement stmt;
-        ResultSet rs;
-        ResultSet rr;
-        Statement stmr;
-        Statement stmd;
-        String id;
-        String idr="";
+     public boolean editServices() {
+        Statement st1;
+        Statement stmt1;
+        ResultSet rs1;
         try {
+            st1 = m_con.createStatement();
+            stmt1 = m_con.createStatement();
+            String id1 = "";
+            rs1 = stmt1.executeQuery("select id from services where services.id="+getId());
+            while(rs1.next()){
+                id1 = rs1.getString(1);
+                System.out.println("valor de la columna Services "+id1);
+            }
+            rs1.close();
+            stmt1.close();
+            String s_sqll;
+           String s_sql1 = "update services \n"+
+                    "set nombre='"+getName()+"',codigo='"+getCodigo()+"',descripcion='"+getDescription()+"' where services.id="+getId();               
             
-            st=m_con.createStatement();
-            stmt = m_con.createStatement();
-            stmr = m_con.createStatement();
-            stmd = m_con.createStatement();
-            id="";      
-         
-           // rs = stmt.executeQuery("select idpersona from cliente where idcliente="+getIdcliente());
-            rs = stmt.executeQuery("select id from services where id="+getId()+"");
-            while (rs.next()) {               // Posicionar el cursor                
-                    id = rs.getString(1);       // Recuperar el valor de columna
-                    System.out.println("Valor de columna de identidad = " + id);
-                                  // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
-            
-                
-           int idp = Integer.parseInt(id); 
-            System.out.println("Valor de columna de identidad = " + idp);
-           String s_sql="UPDATE services \n" +
-                         "SET  nombre='"+getName()+"', codigo="+getCodigo()+", \n" +
-                         "descripcion='"+getDescription()+"',estado='"+isStatus()+"',\n" 
-                         +"WHERE id="+idp; 
-//            String s_sql="UPDATE users \n" +
-//                         "SET  nombre='roger', \n" +
-//                         "usuario='roger',email='rogetp7845@hotmail.com', updated_at=now() \n"+
-//                         "WHERE id="+idp;  
-           int n_res1= st.executeUpdate(s_sql);
-            
-                     
-            if ((n_res1==1)){
-                System.out.println("editado exitoso");
+            if(st1.executeUpdate(s_sql1)==1){
+                System.out.println("Se actualizó con exito");
                 return true;
             }
-            
-            System.out.println("no se pudo editar el servicio en el modelo");
+            System.out.println("No se pudo actualizar");
             return false;
-        } catch (SQLException ex) {
-            
-            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE,null,e);
             return false;
         } 
     } 
-     public boolean delCotizaciones (){
-        Statement  st;
-        Statement stmt;
-        ResultSet rs;
-        String id;
+     public boolean delServices (){
+        Statement st;
         try {
-           st=m_con.createStatement();
-            stmt = m_con.createStatement();
-            id="";      
-            String s_sql="UPDATE services\n" +
-                         "SET estado='false'\n" +
-                         "WHERE id="+getId(); 
-            /*String s_sql="UPDATE cliente\n" +
-                         "SET del_estado='A' \n" +
-                         "WHERE idCliente=1";*/
-            int n_res= st.executeUpdate(s_sql);
-            
-            rs = stmt.executeQuery("select id from services where id="+getId());
-            while (rs.next()) {               // Posicionar el cursor                
-                    id = rs.getString(1);       // Recuperar el valor de columna
-                    System.out.println("Valor de columna de identidad = " + id);
-                                  // Imprimir el valor de columna
-                    }
-                    rs.close();                       // Cerrar el ResultSet                
-                    stmt.close();   
-            
-                
-           int idp = Integer.parseInt(id); 
-           System.out.println("Valor de columna de identidad = " + idp);
-           
-            if ((n_res==1)){
-                System.out.println("eliminado exitoso");
+            st = m_con.createStatement();
+            String s_sql = "UPDATE services \n"+
+                           "set estado=false \n"+
+                           "where id="+getId();
+            if(st.executeUpdate(s_sql)==1){
+                System.out.println("Servicio eliminado");
                 return true;
             }
-            
-            System.out.println("no se pudo dar de baja la cotización en el modelo");
+            System.out.println("No se pudo eliminar el Servicio");
             return false;
-        } catch (SQLException ex) {
-            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(DServices.class.getName()).log(Level.SEVERE, null, e);
             return false;
         }
     }
      public static void main(String[] args) {
          
+         DServices cli=new DServices();
+         // SHIFT + CONTROL + C == EDITAR VARIAS LINEAS SELECCIONADAS
+         //LISTAR SERVICIOS
+//         System.out.println(cli.listServices());
+//       for (int i = 0; i < cli.listServices().size(); i++) {
+//           System.out.println(cli.listServices().get(i).getName());
+//       }
 
-
+         //REGISTRAR SERVICIOS
+//         cli.setName("MudanzasMundial");
+//         cli.setCodigo("MUND");
+//         cli.setDescription("Mudanzas mundiales con costo adicional");
+//         System.out.println(cli.regServices());
+         //ACTUALIZAR SERVICIOS
+         cli.setName("MU LOCALES");
+         cli.setCodigo("MXM");
+         cli.setDescription("SIUOQSANAGSM");
+         cli.setId(1);
+         System.out.println(cli.editServices());
+         //ELIMINAR SERVICIOS
+//           cli.setId(3);
+//           System.out.println(cli.delServices());
+         
     }
 }

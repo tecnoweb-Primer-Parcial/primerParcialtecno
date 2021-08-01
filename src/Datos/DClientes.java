@@ -115,7 +115,7 @@ public class DClientes {
             rs1.close();
             stmt1.close();
             String s_sql1 = "update contactprincipal \n"+
-                    "set nombre='"+getNombreContact()+"',iniciales='"+getIniciales()+"',cel="+getCel()+",email='"+getEmail()+"',emailconf='"+getEmailConf()+"',observaciones='"+getObservaciones()+"' where contactprincipal.id="+getIdContact();
+                    "set nombre='"+getNombreContact()+"',iniciales='"+getIniciales()+"',cel="+getCel()+",email='"+getEmail()+"',emailconf='"+getEmailConf()+"',observaciones='"+getObservaciones()+"' where contactprincipal.id="+getIdContact();               
             if(st1.executeUpdate(s_sql1)==1){
                 System.out.println("Se edito con exito");
                 return true;
