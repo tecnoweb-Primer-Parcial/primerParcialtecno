@@ -6,12 +6,9 @@
 package Presentacion;
 
 import Negocio.NEmpleados;
-<<<<<<< HEAD
 import Negocio.NRutas;
-=======
 import Negocio.NClientes;
 import Negocio.NEmpresas;
->>>>>>> f219c0b1accb6de47c7b6a17cc131613536af52c
 
 import java.io.IOException;
 import java.util.List;
@@ -175,7 +172,6 @@ public class Manejador {
         System.out.println(prt_asunto + "...\r\n");
 
         switch (prt_asunto) {
-<<<<<<< HEAD
             //Angel Oni Terceros
             /***************************/
             //--------NRUTA-------------
@@ -202,9 +198,8 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNRutas));
                 break;
             
-=======
+
             //Cristhian Vargas Quiroz
->>>>>>> f219c0b1accb6de47c7b6a17cc131613536af52c
             case "LISTEMPLEADOS": //metodo para listar clientes
                 System.out.println(prt_asunto + "...\r\n");
                 NEmpleados m_Nempleados = new NEmpleados();
