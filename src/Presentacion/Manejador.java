@@ -95,7 +95,7 @@ public class Manejador {
         String metodo = lineaMetodo.substring(8, posIni).trim();
         metodo = metodo.toUpperCase();
         if (metodo.length() == 0) {
-            metodo = "COMANDOS";
+            metodo = "AYUDA";
         }
         return metodo;
     }
@@ -265,7 +265,7 @@ public class Manejador {
                 break;
             //Cristhian Vargas Quiroz
             
-            case "COMANDOS": //metodo para comandos
+            case "AYUDA": //metodo para comandos
                 System.out.println("La cantidad de caracteres de:" + prt_asunto.length());
                 System.out.println("la direccion origen es: " + prt_mailFrom);
                 System.out.println("el asunto del mensaje es: " + prt_asunto);
@@ -288,6 +288,7 @@ public class Manejador {
         String titulo = "<div>\n"
                 + " <h2>Comandos de la aplicacion EXPRINTER</h2>\n"
                 + "</div>";
+        //cristhian vargas quiroz
         String ayudaEmpleados = "<div>\n" + "<div>\n"
                 + "<h3>COMANDOS DE EMPLEADOS</h3>\n" + "</div>\n"
                 
@@ -312,7 +313,58 @@ public class Manejador {
                 
                 + "</div>\n"
                 + "</div>";
-        return "Content-Type:text/html;\r\n<html>" + estilo + titulo + ayudaEmpleados + "</html>";
+        
+                String ayudaClientes = "<div>\n" + "<div>\n"
+                + "<h3>COMANDOS DE CLIENTES</h3>\n" + "</div>\n"
+                
+                + "<strong>LISTAR CLIENTES :</strong>\n" + "<p>listar todo los CLIENTES = 0</p>\n"
+                + "<p>listar LOS CLIENTES</p>\n" + "<p>LISTCLIENTES[0]</p>\n"
+                + "<p>ejemplo: LISTCLIENTES[0]</p>\n"
+                
+                + "<strong>Registrar un cliente<strong>\n"
+                + "<p>REGCLIENTE[nombre,iniciales,cel,email,emailconf,observaciones,ejecutivo=1...,compañia=1....]</p>\n"
+                + "<strong>Ejemplo de registrar un empleado</strong>\n"
+                + "REGCLIENTE[Cristhian Vargas,CVQ,78541263,cristhian78@gmail.com,cristhian78@gmail.com,ninguna,4,2]\n"
+                
+                + "<strong>Editar un cliente<strong>\n"
+                + "<p>EDITCLIENTE[id,nombre,iniciales,cel,email,emailconf,observaciones]</p>\n"
+                + "<strong>Ejemplo de editar un cliente</strong>\n"
+                + "<p>EDITCLIENTE[5,Cristhian vasques,CVQ,78588196,cris7845@gmail.com,cris7845@gmail.com,ninguna]</p>\n"
+                
+                + "<strong>Eliminar un cliente<strong>\n"
+                + "<p>DELCLIENTE[id]</p>\n"
+                + "<strong>Ejemplo de eliminar un cliente</strong>\n"
+                + "<p>DELCLIENTE[6]</p>\n"
+                
+                + "</div>\n"
+                + "</div>";
+                
+                String ayudaEmpresa = "<div>\n" + "<div>\n"
+                + "<h3>COMANDOS DE EMPRESAS</h3>\n" + "</div>\n"
+                
+                + "<strong>LISTAR EMPRESAS :</strong>\n" + "<p>listar todo las EMPRESAS = 0</p>\n"
+                + "<p>LISTAR LAS EMPRESAS</p>\n" + "<p>LISTEMPRESAS[0]</p>\n"
+                + "<p>ejemplo: LISTEMPRESAS[0]</p>\n"
+                
+                + "<strong>Registrar una empresa<strong>\n"
+                + "<p>REGEMPRESA[nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
+                + "<strong>Ejemplo de registrar un empleado</strong>\n"
+                + "REGCLIENTE[Fiambres LOLA,784512458,SA,google.com,barrio olimpo,3569856,78588196,norte,fiambres,privado]\n"
+                
+                + "<strong>Editar una empresa<strong>\n"
+                + "<p>EDITEMPRESA[id,nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
+                + "<strong>Ejemplo de editar una empresa</strong>\n"
+                + "<p>EDITEMPRESA[6,EMPRESA lola,784512548,SRL,google.com,barrio olimpo,3556985,3556985,zona sur,fiambres,privado]</p>\n"
+                
+                + "<strong>Eliminar una empresa<strong>\n"
+                + "<p>DELEMPRESA[id]</p>\n"
+                + "<strong>Ejemplo de eliminar una empresa</strong>\n"
+                + "<p>DELEMPRESA[7]</p>\n"
+                //cristhian vargas quiroz
+                
+                + "</div>\n"
+                + "</div>";
+        return "Content-Type:text/html;\r\n<html>" + estilo + titulo + ayudaEmpleados + ayudaClientes + ayudaEmpresa + "</html>";
     }
 
     public String getMensajeTabla(String res) {

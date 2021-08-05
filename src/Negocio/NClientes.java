@@ -75,13 +75,13 @@ public class NClientes {
     }
     
     public String editCliente(String[] parametros){
-        clientes.setNombreContact(parametros[0]);
-        clientes.setIniciales(parametros[1]);
-        clientes.setCel(Integer.parseInt(parametros[2]));
-        clientes.setEmail(parametros[3]);
-        clientes.setEmailConf(parametros[4]);
-        clientes.setObservaciones(parametros[5]);
-        clientes.setIdContact(Integer.parseInt(parametros[6]));
+        clientes.setIdContact(Integer.parseInt(parametros[0]));
+        clientes.setNombreContact(parametros[1]);
+        clientes.setIniciales(parametros[2]);
+        clientes.setCel(Integer.parseInt(parametros[3]));
+        clientes.setEmail(parametros[4]);
+        clientes.setEmailConf(parametros[5]);
+        clientes.setObservaciones(parametros[6]);
         boolean b_res = clientes.updateClient();
         if(b_res){
             return successMessage("Se modifico correctamente");

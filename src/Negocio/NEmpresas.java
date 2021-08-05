@@ -75,17 +75,17 @@ public class NEmpresas {
     }
     
     public String editEmpresa(String[] parametros){
-        empresa.setNombre(parametros[0]);
-        empresa.setNit(parametros[1]);
-        empresa.setRazonsocial(parametros[2]);
-        empresa.setSitioweb(parametros[3]);
-        empresa.setDireccion(parametros[4]);
-        empresa.setTelf(Integer.parseInt(parametros[5]));
-        empresa.setFax(Integer.parseInt(parametros[6]));
-        empresa.setUbicacion(parametros[7]);
-        empresa.setSector(parametros[8]);
-        empresa.setTipo(parametros[9]);
-        empresa.setId(Integer.parseInt(parametros[10]));
+        empresa.setId(Integer.parseInt(parametros[0]));
+        empresa.setNombre(parametros[1]);
+        empresa.setNit(parametros[2]);
+        empresa.setRazonsocial(parametros[3]);
+        empresa.setSitioweb(parametros[4]);
+        empresa.setDireccion(parametros[5]);
+        empresa.setTelf(Integer.parseInt(parametros[6]));
+        empresa.setFax(Integer.parseInt(parametros[7]));
+        empresa.setUbicacion(parametros[8]);
+        empresa.setSector(parametros[9]);
+        empresa.setTipo(parametros[10]);
         boolean b_res = empresa.updateEmpresa();
         if(b_res){
             return successMessage("Empresa modificada exitosamente");
