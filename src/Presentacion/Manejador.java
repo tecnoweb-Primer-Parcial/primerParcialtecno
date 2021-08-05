@@ -6,6 +6,8 @@
 package Presentacion;
 
 import Negocio.NEmpleados;
+import Negocio.NClientes;
+import Negocio.NEmpresas;
 
 import java.io.IOException;
 import java.util.List;
@@ -169,6 +171,7 @@ public class Manejador {
         System.out.println(prt_asunto + "...\r\n");
 
         switch (prt_asunto) {
+            //Cristhian Vargas Quiroz
             case "LISTEMPLEADOS": //metodo para listar clientes
                 System.out.println(prt_asunto + "...\r\n");
                 NEmpleados m_Nempleados = new NEmpleados();
@@ -190,6 +193,50 @@ public class Manejador {
                 String res_delEmpleado = delEmpleado.delEmpleado(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpleado));
                 break;
+                
+            case "LISTCLIENTES": // listar todos los clientes
+                NClientes listClientes = new NClientes();
+                String res_listClientes = listClientes.listClientes(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_listClientes));
+                break;
+            case "REGCLIENTE": // registrar un nuevo cliente
+                NClientes regCliente = new NClientes();
+                String res_regCliente = regCliente.regClientes(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regCliente));
+                break;
+            case "EDITCLIENTE": // editar un cliente
+                NClientes editCliente = new NClientes();
+                String res_editCliente = editCliente.editCliente(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editCliente));
+                break;
+            case "DELCLIENTE": // eliminar un cliente
+                NClientes delCliente = new NClientes();
+                String res_delCliente = delCliente.delCliente(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCliente));
+                break;
+                
+            case "LISTEMPRESAS": // listar todas las empresas
+                NEmpresas listEmpresas = new NEmpresas();
+                String res_listEmpresas = listEmpresas.listEmpresas(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_listEmpresas));
+                break;
+            case "REGEMPRESA": // registrar una nueva empresa
+                NEmpresas regEmpresa = new NEmpresas();
+                String res_regEmpresa = regEmpresa.regEmpresa(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regEmpresa));
+                break;
+            case "EDITEMPRESA": // editar una empresa
+                NEmpresas editEmpresa = new NEmpresas();
+                String res_editEmpresa = editEmpresa.editEmpresa(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editEmpresa));
+                break;
+            case "DELEMPRESA": // eliminar una empresa
+                NEmpresas delEmpresa = new NEmpresas();
+                String res_delEmpresa = delEmpresa.delEmpresa(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpresa));
+                break;
+            //Cristhian Vargas Quiroz
+            
             case "COMANDOS": //metodo para comandos
                 System.out.println("La cantidad de caracteres de:" + prt_asunto.length());
                 System.out.println("la direccion origen es: " + prt_mailFrom);
