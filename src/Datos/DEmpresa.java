@@ -255,7 +255,7 @@ public class DEmpresa {
         this.estado = estado;
     }
 
-       public static void main(String[] args) {
+       /*public static void main(String[] args) {
        // TODO code application logic here
        DEmpresa cli=new DEmpresa();
        
@@ -285,5 +285,5 @@ public class DEmpresa {
            System.out.println(cli.listEmpresa().get(i).getNombre());
        }
     
-    }
+    }*/
 }

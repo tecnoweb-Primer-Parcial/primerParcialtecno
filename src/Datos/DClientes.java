@@ -339,6 +339,7 @@ public class DClientes {
         this.idCompany = idCompany;
     }
     
+    /*
     public static void main(String[] args) {
        // TODO code application logic here
        DClientes cli=new DClientes();
@@ -370,11 +371,12 @@ public class DClientes {
        //eliminar un cliente
        //cli.setIdContact(3);
        //System.out.println(cli.delClient());
-
+/*
        System.out.println(cli.listClients());
        for (int i = 0; i < cli.listClients().size(); i++) {
            System.out.println(cli.listClients().get(i).getNombreC());
        }
     
     }
+*/
 }

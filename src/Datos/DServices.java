@@ -189,7 +189,7 @@ public class DServices {
             return false;
         }
     }
-     public static void main(String[] args) {
+    /* public static void main(String[] args) {
          
          DServices cli=new DServices();
          // SHIFT + CONTROL + C == EDITAR VARIAS LINEAS SELECCIONADAS
@@ -214,5 +214,5 @@ public class DServices {
 //           cli.setId(3);
 //           System.out.println(cli.delServices());
          
-    }
+    }*/
 }

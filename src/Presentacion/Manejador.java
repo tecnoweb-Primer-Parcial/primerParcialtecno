@@ -6,6 +6,7 @@
 package Presentacion;
 
 import Negocio.NEmpleados;
+import Negocio.NRutas;
 
 import java.io.IOException;
 import java.util.List;
@@ -169,6 +170,32 @@ public class Manejador {
         System.out.println(prt_asunto + "...\r\n");
 
         switch (prt_asunto) {
+            //Angel Oni Terceros
+            /***************************/
+            //--------NRUTA-------------
+            /***************************/
+            case "LISTERUTA": //metodo para listar RUTA
+                System.out.println(prt_asunto + "...\r\n");
+                NRutas n_rutas = new NRutas();
+                String res_NRutas = n_rutas.listRutas(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_NRutas));
+                break;
+            case "REGISRUTA": // REGISTRAR RUTA
+                NRutas regNRutas = new NRutas();
+                String res_regRuta = regNRutas.regRutas(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regRuta));
+                break;
+            case "EDITRUTA": // editar un RUTA
+                NRutas editNRutas = new NRutas();
+                String res_editNRutas = editNRutas.editRutas(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editNRutas));
+                break;
+            case "DELRUTA": // eliminar un RUTA
+                NRutas delNRutas = new NRutas();
+                String res_delNRutas = delNRutas.delEmpresa(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNRutas));
+                break;
+            
             case "LISTEMPLEADOS": //metodo para listar clientes
                 System.out.println(prt_asunto + "...\r\n");
                 NEmpleados m_Nempleados = new NEmpleados();

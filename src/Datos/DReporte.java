@@ -542,7 +542,7 @@ public class DReporte {
     }
 
     
-       public static void main(String[] args) {
+      /* public static void main(String[] args) {
        // TODO code application logic here
        DReporte cli=new DReporte();
        cli.setFechaInit("2021-07-23");
@@ -553,5 +553,5 @@ public class DReporte {
            System.out.println(cli.listResportDate().get(i).getCliente());
        }
     
-    }
+    }*/
 }

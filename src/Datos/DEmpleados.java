@@ -259,7 +259,7 @@ public class DEmpleados {
         this.id = id;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // TODO code application logic here
         DEmpleados cli = new DEmpleados();
 
@@ -286,11 +286,11 @@ public class DEmpleados {
         //cli.setId(8);
         //System.out.println(cli.delEmpleado());
         //System.out.println(cli.updateEmpleado());
-        System.out.println(cli.listEmpleados());
+        /*System.out.println(cli.listEmpleados());
         for (int i = 0; i < cli.listEmpleados().size(); i++) {
             System.out.println(cli.listEmpleados().get(i).getNombre());
         }
 
-    }
+    }*/
 
 }
