@@ -111,7 +111,6 @@ public class Manejador {
 
     private void enviarMensajeCorreoOrigen(String prt_mailFrom, String prt_asunto, String prt_mensaje) {
         m_SMTPMessage2 = new SMTPMessage();
-        //m_SMTPMessage2.sendMessage("grupo05sc@virtual.fcet.uagrm.edu.bo", prt_mailFrom, prt_asunto, prt_mensaje);
         m_SMTPMessage2.sendMessage("grupo05sa@tecnoweb.org.bo", prt_mailFrom, prt_asunto, prt_mensaje);
         m_SMTPMessage2.cerrar();
     }
@@ -176,6 +175,21 @@ public class Manejador {
                 String s_resEmpleados = m_Nempleados.listEmpleqados(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(s_resEmpleados));
                 break;
+            case "REGEMPLEADOS": // REGISTRAR EMPLEADOS
+                NEmpleados regEmpleados = new NEmpleados();
+                String res_regEmpleado = regEmpleados.regEmpleado(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regEmpleado));
+                break;
+            case "EDITEMPLEADOS": // editar un empleado
+                NEmpleados editEmpleado = new NEmpleados();
+                String res_editEmpleado = editEmpleado.editEmpleado(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editEmpleado));
+                break;
+            case "DELEMPLEADOS": // eliminar un empleado
+                NEmpleados delEmpleado = new NEmpleados();
+                String res_delEmpleado = delEmpleado.delEmpleado(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpleado));
+                break;
             case "COMANDOS": //metodo para comandos
                 System.out.println("La cantidad de caracteres de:" + prt_asunto.length());
                 System.out.println("la direccion origen es: " + prt_mailFrom);
@@ -195,15 +209,32 @@ public class Manejador {
     }
 
     public String getMensajeAyuda() {
-        String estilo = "<link rel='stylesheet' href='https://codepen.io/ingyas/pen/NENBOm.css'>";
+        String estilo = "<link>";
         String titulo = "<div>\n"
-                + " <h2>Comandos de la aplicacion \"EXPRINTER\"</h2>\n"
+                + " <h2>Comandos de la aplicacion EXPRINTER</h2>\n"
                 + "</div>";
-        String ayudaEmpleados = "<div class=\"box\">\n" + "<div class=\"box-title\">\n"
+        String ayudaEmpleados = "<div>\n" + "<div>\n"
                 + "<h3>COMANDOS DE EMPLEADOS</h3>\n" + "</div>\n"
+                
                 + "<strong>LISTAR EMPLEADOS :</strong>\n" + "<p>listar todo los EMPLEADOS = 0</p>\n"
                 + "<p>listar LOS EMPLEADOS</p>\n" + "<p>ListEmpleados[0]</p>\n"
                 + "<p>ejemplo: ListEmpleados[0]</p>\n"
+                
+                + "<strong>Registrar un empleado<strong>\n"
+                + "<p>REGEMPLEADOS[nombre,email,password,ci,telefono,direccion,genero,nacimiento,rol=1 o 2]</p>\n"
+                + "<strong>Ejemplo de registrar un empleado</strong>\n"
+                + "REGEMPLEADOS[Cristhian Vargas,cristhian@gmail.com,12345678,9636927,78588196,calle olimpo,M,1997-02-21,2]\n"
+                
+                + "<strong>Editar un empleado<strong>\n"
+                + "<p>EDITEMPLEADOS[id,nombre,email,ci,telefono,direccion,genero,nacimiento]</p>\n"
+                + "<strong>Ejemplo de editar un empleado</strong>\n"
+                + "<p>EDITEMPLEADOS[1,Cristhian Quiroz,criss@gmail.com,9685742,78589632,calle oliver,M,1997-02-23]</p>\n"
+                
+                + "<strong>Eliminar un empleado<strong>\n"
+                + "<p>DELEMPLEADOS[id]</p>\n"
+                + "<strong>Ejemplo de eliminar un empleado</strong>\n"
+                + "<p>DELEMPLEADOS[9]</p>\n"
+                
                 + "</div>\n"
                 + "</div>";
         return "Content-Type:text/html;\r\n<html>" + estilo + titulo + ayudaEmpleados + "</html>";
