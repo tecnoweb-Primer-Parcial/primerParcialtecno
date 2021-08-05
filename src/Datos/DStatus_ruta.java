@@ -230,18 +230,18 @@ public class DStatus_ruta {
     public static void main(String[] args) {
         DStatus_ruta cli = new DStatus_ruta();
 
-//        cli.setEstadoRuta("proceso");
+//        cli.setEstadoRuta("Camino");
 //        cli.setIdRutas(2);
 //        cli.setIdCotizacion(7);
 //        System.out.println(cli.regStatusRuta());
 
-//        cli.setId(6);
+//        cli.setId(7);
 //        cli.setIdRutas(3);
 //        cli.setIdCotizacion(6);
-//        cli.setEstadoRuta("camino");
+//        cli.setEstadoRuta("transito");
 //        System.out.println(cli.editStatusRuta());
 
-        cli.setId(5);
+        cli.setId(7);
         System.out.println(cli.delStatusRuta());
 
         System.out.println(cli.listStatusRuta());
