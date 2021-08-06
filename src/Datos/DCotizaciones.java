@@ -254,7 +254,7 @@ public class DCotizaciones {
             return false;
         }
     }
-     
+ /*    
     public static void main(String[] args) {
        // TODO code application logic here
        DCotizaciones cli=new DCotizaciones();
@@ -280,7 +280,7 @@ public class DCotizaciones {
         System.out.println(cli.editCotizaciones());*/
        
        //DELETE COTIZACIONES
-       cli.setId(8);
+       /*cli.setId(8);
        System.out.println(cli.delCotizaciones());
 
        System.out.println(cli.listCotizaciones());
@@ -288,5 +288,5 @@ public class DCotizaciones {
            System.out.println(cli.listCotizaciones().get(i).getEjecutivo());
        }
     
-    }
+    }*/
 }

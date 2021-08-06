@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 public class DRutas {
     private final Conexion m_Conexion;
     private final Connection m_con;
-    private Connection con;
     
     // Atributos
     
