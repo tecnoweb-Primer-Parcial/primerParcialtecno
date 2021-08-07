@@ -5,12 +5,14 @@
  */
 package Presentacion;
 
+import Negocio.NApertura;
 import Negocio.NEmpleados;
 import Negocio.NRutas;
 import Negocio.NClientes;
 import Negocio.NEmpresas;
 import Negocio.NCotizaciones;
 import Negocio.NServices;
+import Negocio.NStatusRuta;
 
 import java.io.IOException;
 import java.util.List;
@@ -179,15 +181,7 @@ public class Manejador {
              * ************************
              */
             //--------NRUTA-------------
-<<<<<<< HEAD
-            /***************************/
             case "LISTRUTA": //metodo para listar RUTA
-=======
-            /**
-             * ************************
-             */
-            case "LISTERUTA": //metodo para listar RUTA
->>>>>>> e74402d2d708ba862aad5fecb73dd8e6d5b569fb
                 System.out.println(prt_asunto + "...\r\n");
                 NRutas n_rutas = new NRutas();
                 String res_NRutas = n_rutas.listRutas(prt_parametros);
@@ -208,8 +202,60 @@ public class Manejador {
                 String res_delNRutas = delNRutas.delEmpresa(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNRutas));
                 break;
-
+                
+            //**************
+            //---------STATUS RUTA---------------------
+            //-----------------------------------------
+            case "LISTSTATUSRUTA": //metodo para listar RUTA
+                System.out.println(prt_asunto + "...\r\n");
+                NStatusRuta n_status_rutas = new NStatusRuta();
+                String res_NStatusRuta = n_status_rutas.listStatusRuta(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_NStatusRuta));
+                break;
+            case "REGSTATUSRUTA": // REGISTRAR RUTA
+                NStatusRuta regNStatusRutas = new NStatusRuta();
+                String res_regStatusRuta = regNStatusRutas.regStatusRuta(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regStatusRuta));
+                break;
+            case "EDITSTATUSRUTA": // editar un RUTA
+                NStatusRuta editNStatusRutas = new NStatusRuta();
+                String res_editNStatusRutas = editNStatusRutas.editStatusRuta(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editNStatusRutas));
+                break;
+            case "DELSTATUSRUTA": // eliminar un RUTA
+                NStatusRuta delNStatusRutas = new NStatusRuta();
+                String res_delNStatusRutas = delNStatusRutas.delStatusRuta(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNStatusRutas));
+                break;
+                 
+            //**************
+            //---------APERTURA---------------------
+            //-----------------------------------------
+            case "LISTAPERTURA": //metodo para listar RUTA
+                System.out.println(prt_asunto + "...\r\n");
+                NApertura n_apertura = new NApertura();
+                String res_NApertura = n_apertura.listApertura(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_NApertura));
+                break;
+            case "REGAPERTURA": // REGISTRAR RUTA
+                NApertura regNApertura = new NApertura();
+                String res_regApertura = regNApertura.regApertura(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regApertura));
+                break;
+            case "EDITAPERTURA": // editar un RUTA
+                NApertura editNApertura = new NApertura();
+                String res_editNApertura = editNApertura.editApertura(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editNApertura));
+                break;
+            case "DELAPERTURA": // eliminar un RUTA
+                NApertura delNApertura = new NApertura();
+                String res_delNApertura = delNApertura.delApertura(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNApertura));
+                break;
+                  
             //Cristhian Vargas Quiroz
+           //------EMPLEADOS-----------------
+           //**********************************
             case "LISTEMPLEADOS": //metodo para listar clientes
                 System.out.println(prt_asunto + "...\r\n");
                 NEmpleados m_Nempleados = new NEmpleados();
@@ -231,7 +277,10 @@ public class Manejador {
                 String res_delEmpleado = delEmpleado.delEmpleado(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpleado));
                 break;
-
+            //-------------------------------    
+            //------CLIENTES-----------------
+            //**********************************
+            
             case "LISTCLIENTES": // listar todos los clientes
                 NClientes listClientes = new NClientes();
                 String res_listClientes = listClientes.listClientes(prt_parametros);
@@ -252,7 +301,11 @@ public class Manejador {
                 String res_delCliente = delCliente.delCliente(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCliente));
                 break;
-
+            
+            //-------------------------------    
+            //------EMPRESA-----------------
+            //**********************************
+            
             case "LISTEMPRESAS": // listar todas las empresas
                 NEmpresas listEmpresas = new NEmpresas();
                 String res_listEmpresas = listEmpresas.listEmpresas(prt_parametros);
@@ -274,6 +327,10 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpresa));
                 break;
             //Denilson Santa Cruz
+            //-------------------------------    
+            //------COTIZACIONES-----------------
+            //**********************************
+            
             case "LISTCOTIZACIONES": //metodo para listar cotizaciones
                 System.out.println(prt_asunto + "...\r\n");
                 NCotizaciones m_Ncotizaciones = new NCotizaciones();
@@ -296,6 +353,10 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCotizacion));
                 break;
 
+            //-------------------------------    
+            //------SERVICIOS-----------------
+            //**********************************
+            
             case "LISTSERVICIOS": // listar todos los servicios
                 NServices listServices = new NServices();
                 String res_listServices = listServices.listservices(prt_parametros);
