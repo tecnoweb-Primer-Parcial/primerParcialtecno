@@ -47,7 +47,7 @@ public class NRutas {
     }
     
     public String regRutas(String[] parametros){
-        d_rutas.setNombreRuta(parametros[1]);
+        d_rutas.setNombreRuta(parametros[0]);
         boolean b_res = d_rutas.regRuta();
         if(b_res){
             return successMessage("Ruta registrada exitosamente");
