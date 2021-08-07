@@ -114,7 +114,7 @@ public class DReporte {
             st = m_con.createStatement();
             String s_sql = "select cotizaciones.cod,cotizaciones.cliente,cotizaciones.ejecutivo,cotizaciones.tarifa,services.nombre,company.nombre \n"+
                     "from cotizaciones, company, services \n"+
-                    "where cotizaciones.idservice=services.id and cotizaciones.idcom=company.id and cotizaciones.fechacot between '"+this.getFechaInit()+"' and '"+this.getFechaFin()+"'";
+                    "where cotizaciones.idservice=services.id and cotizaciones.idcom=company.id and cotizaciones.fechacot between '2021-01-01' and '2021-12-01'";
             ResultSet r_res = st.executeQuery(s_sql);
             while(r_res.next()){
                 DReporte i_reportDate = new DReporte();

@@ -14,7 +14,10 @@ import Negocio.NCotizaciones;
 import Negocio.NServices;
 import Negocio.NReporte;
 import Negocio.NStatusRuta;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 360e4d0f274b7e0ce9a0b6afa20815fcfdb1de89
 
 import java.io.IOException;
 import java.util.List;
@@ -720,12 +723,99 @@ public class Manejador {
                 + "                                                        <br>"
                 + "                                                        GENERAR REPORTE:<br><br>\n"
                 + "                                                        REPORTE[0] PARA MOSTRAR UN REPORTE DE COTIZACIONES POR EJECUTIVO <br>\n"
-                + "                                                        GENERAR REPORTE POR FECHA:<br><br>\n"
-                + "                                                        REPORTEDATE[2021-06-17. 2021-07-08] PARA MOSTRAR UN REPORTE DEL SISTEMA MAIL<br>\n"
+                + "                                                        GENERAR REPORTE POR AÑO:<br><br>\n"
+                + "                                                        REPORTEDATE[0] PARA MOSTRAR UN REPORTE DEL SISTEMA MAIL ANUAL<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        String statusRutaHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR ÈSTADO DE RUTAS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR ESTADOS DE RUTAS:<br><br>\n"
+                + "                                                        LISTSTATUSRUTA: [0] PARA LISTAR TODOS LOS SERVICIOS <br>\n"
+                + "                                                        REGISTRAR ESTADO DE RUTA:<br><br>\n"
+                + "                                                        PARA REGISTRAR UN ESTADO DE RUTA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGSTATUSRUTA[ruta,cotizacion,estado]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGSTATUSRUTA[Mudanzas 2,OMI,solo en la ciudad] <br><br>"
+                + "                                                        EDITAR ESTADO DE LA RUTA:<br><br>\n"
+                + "                                                        PARA EDITAR UN ESTADO DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITSTATUSRUTA[id,ruta,cotizacion,estado]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITSTATUSRUTA[1,3,aceptado]<br><br>"
+                + "                                                        Eliminar una estado de ruta:<br><br>"
+                + "                                                        DELSTATUSRUTA[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELSTATUSRUTA[2]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+                String aperturaHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR APERTURAS CONTABLES \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR APERTURAS DISPONIBLES:<br><br>\n"
+                + "                                                        LISTAPERTURA: [0] PARA LISTAR TODOS LAS APERTURAS <br>\n"
+                + "                                                        REGISTRAR UN NUEVA APERTURA:<br><br>\n"
+                + "                                                        PARA REGISTRAR UNA APERTURA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGAPERTURA[codigo,fecha inicial,fecha final,comentario,cotizacion]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGAPERTURA[OMX,2021-05-12,2021-06-02,en evaluacion,3] <br><br>"
+                + "                                                        EDITAR apertura contable:<br><br>\n"
+                + "                                                        PARA EDITAR UNA APRETURA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITAPERTURA[ID,codigo,fecha inicial, fecha final,comentario,cotizacion]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITAPERTURA[OMX,2021-06-12,2021-06-26]<br><br>"
+                + "                                                        Eliminar una apertura:<br><br>"
+                + "                                                        DELAPERTURA[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELAPERTURA[2]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+                String rutaHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR RUTAS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR RUTAS DISPONIBLES:<br><br>\n"
+                + "                                                        LISTAPERTURA: [0] PARA LISTAR TODOS LAS RUTAS <br>\n"
+                + "                                                        REGISTRAR UN NUEVA RUTAS:<br><br>\n"
+                + "                                                        PARA REGISTRAR UNA RUTAS DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGRUTAS[NOMBRE]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGISRUTA[CBBA-PN] <br><br>"
+                + "                                                        EDITAR apertura contable:<br><br>\n"
+                + "                                                        PARA EDITAR UNA RUTA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITRUTAS[ID,NOMBRE]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITRUTAS[2,SNT-LPZ]<br><br>"
+                + "                                                        Eliminar una ruta:<br><br>"
+                + "                                                        DELRUTA[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELRUTA[2]<br>\n"
                 + "                                                    </td>\n"
                 + "                                                </tr>\n";
                 
-        return "Content-Type:text/html;\r\n<html>" + titulo + body + cad + empleadosHelp + clientesHelp + empresaHelp + cotizacionesHelp + serviciosHelp +  "</tr></td></table></table></table>" + "</html>";
+        return "Content-Type:text/html;\r\n<html>" + titulo + body + cad + empleadosHelp + clientesHelp + empresaHelp + cotizacionesHelp + serviciosHelp + statusRutaHelp + aperturaHelp + rutaHelp + reporteHelp + "</tr></td></table></table></table>" + "</html>";
     }
 
     public String getMensajeTabla(String res) {
