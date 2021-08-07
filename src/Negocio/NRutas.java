@@ -25,11 +25,13 @@ public class NRutas {
         if(validarParaList(parametros)){
             l_rutas = d_rutas.listRutas();
             if(l_rutas.size() > 0){
+
                 String s_res = "<h2>Lista de Rutas</h2>";
                 s_res += "<table border=1><tr>"
                         + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID</th>"
                         + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre Ruta</th>"
                         +"</tr>";
+
                 for(DRutas i_ruta : l_rutas){
                     s_res += "<tr>";
                     s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getId() + "</th>";
