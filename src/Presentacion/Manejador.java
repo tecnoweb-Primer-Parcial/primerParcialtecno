@@ -11,6 +11,7 @@ import Negocio.NRutas;
 import Negocio.NClientes;
 import Negocio.NEmpresas;
 import Negocio.NCotizaciones;
+import Negocio.NEstadisticas;
 import Negocio.NServices;
 import Negocio.NReporte;
 import Negocio.NStatusRuta;
@@ -389,6 +390,10 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_lisReporteDate));
                 break;
                 
+            case "ESTADISTICA":
+                NEstadisticas cotizaciones = new NEstadisticas();
+                String res_estadistica = cotizaciones.showEstadistica();
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_estadistica));
             //Cristhian Vargas Quiroz
 
             case "AYUDA": //metodo para comandos
