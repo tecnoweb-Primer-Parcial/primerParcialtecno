@@ -25,18 +25,27 @@ public class NRutas {
         if(validarParaList(parametros)){
             l_rutas = d_rutas.listRutas();
             if(l_rutas.size() > 0){
-                String s_res = "<h2>Lista de Rutas</h2>";
-                s_res += "<table><tr>"
+                String s_res = "<img src=\"https://exprinterbolivia.net/wp-content/uploads/2019/01/nuevologo_exprinter.jpg\">";
+                s_res += "<table> "
+                        + "<h2>Lista de Rutas</h2>"
+                        + "<thead>"
+                        + "<tr>"
                         + "<td>ID</td>"
                         + "<td>Nombre Ruta</td>"
-                        +"</tr>";
+                        +"</tr>"
+                        + "</thead>"
+                        + "<tbody>";
                 for(DRutas i_ruta : l_rutas){
                     s_res += "<tr>";
                     s_res += "<td>" + i_ruta.getId() + "</td>";
                     s_res += "<td>" + i_ruta.getNombreRuta() + "</td>";
                     s_res += "</tr>";
                 }
-                s_res += "</table>";
+                s_res += "</tbody>"
+                        + "<tfoot>"
+                        + "<p style=\"text-align:center; \"> Exprinter Bolivia</p>"
+                        + "</tfoot>"
+                        + "</table>";
                 return s_res;
             }
             return successMessage("Lista vacia");

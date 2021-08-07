@@ -178,7 +178,7 @@ public class Manejador {
             /***************************/
             //--------NRUTA-------------
             /***************************/
-            case "LISTERUTA": //metodo para listar RUTA
+            case "LISTRUTA": //metodo para listar RUTA
                 System.out.println(prt_asunto + "...\r\n");
                 NRutas n_rutas = new NRutas();
                 String res_NRutas = n_rutas.listRutas(prt_parametros);
