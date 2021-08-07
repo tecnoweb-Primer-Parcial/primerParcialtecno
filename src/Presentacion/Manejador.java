@@ -815,8 +815,23 @@ public class Manejador {
                 +                                                          "DELRUTA[2]<br>\n"
                 + "                                                    </td>\n"
                 + "                                                </tr>\n";
+        String estadistica = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GENERAR ESTADISTICAS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        GENERAR ESTADISTICA:<br><br>\n"
+                + "                                                        ESTADISTICA[] PARA MOSTRAR UN REPORTE DE COTIZACIONES POR EJECUTIVO <br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
                 
-        return "Content-Type:text/html;\r\n<html>" + titulo + body + cad + empleadosHelp + clientesHelp + empresaHelp + cotizacionesHelp + serviciosHelp + statusRutaHelp + aperturaHelp + rutaHelp + reporteHelp + "</tr></td></table></table></table>" + "</html>";
+        return "Content-Type:text/html;\r\n<html>" + titulo + body + cad + empleadosHelp + clientesHelp + empresaHelp + cotizacionesHelp + serviciosHelp + statusRutaHelp + aperturaHelp + rutaHelp + reporteHelp + estadistica + "</tr></td></table></table></table>" + "</html>";
     }
 
     public String getMensajeTabla(String res) {
