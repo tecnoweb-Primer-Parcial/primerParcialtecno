@@ -28,20 +28,20 @@ public class NEmpleados {
             l_empleados = empleados.listEmpleados();
             if (l_empleados.size() > 0) {
                 String s_res = "<h2>Lista de empleados</h2>";
-                s_res = s_res + "<table><tr>"
-                        + "<td>Nombre</td>"
-                        + "<td>Email</td>"
-                        + "<td>CI</td>"
-                        + "<td>Telefono</td>"
-                        + "<td>Direccion</td>"
+                s_res = s_res + "<table border=1><tr>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Email</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">CI</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Telefono</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Direccion</th>"
                         + "</tr>";
                 for (DEmpleados i_empleados : l_empleados) {
                     s_res = s_res + "<tr>";
-                    s_res = s_res + "<td>" + i_empleados.getNombre() + "</td>";
-                    s_res = s_res + "<td>" + i_empleados.getEmail() + "</td>";
-                    s_res = s_res + "<td>" + i_empleados.getCi() + "</td>";
-                    s_res = s_res + "<td>" + i_empleados.getTelf() + "</td>";
-                    s_res = s_res + "<td>" + i_empleados.getDireccion() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empleados.getNombre() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empleados.getEmail() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empleados.getCi() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empleados.getTelf() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empleados.getDireccion() + "</td>";
                     s_res = s_res + "</tr>";
                 }
                 s_res = s_res + "</table>";

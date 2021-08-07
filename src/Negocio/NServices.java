@@ -23,20 +23,20 @@ public class NServices {
             l_services = services.listServices();
             if(l_services.size() > 0){
                 String s_res = "<h2>Lista de servicios</h2>";
-                s_res = s_res + "<table><tr>"
-                        +"<td>Id</td>"
-                        +"<td>Nombre</td>"
-                        +"<td>Código</td>"
-                        +"<td>Descripción</td>"
-                        +"<td>Estado</td>"
+                s_res = s_res + "<table border=1><tr>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Id</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Código</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Descripción</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Estado</th>"
                         +"</tr>";
                 for (DServices i_services : l_services) {
                     s_res = s_res + "<tr>";
-                    s_res = s_res + "<td>" + i_services.getId()+ "</td>";
-                    s_res = s_res + "<td>" + i_services.getName()+ "</td>";
-                    s_res = s_res + "<td>" + i_services.getCodigo()+ "</td>";
-                    s_res = s_res + "<td>" + i_services.getDescription()+ "</td>";
-                    s_res = s_res + "<td>" + i_services.isStatus()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_services.getId()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_services.getName()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_services.getCodigo()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_services.getDescription()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_services.isStatus()+ "</td>";
                     s_res = s_res + "</tr>";
                 }
                 s_res = s_res + "</table>";

@@ -175,9 +175,13 @@ public class Manejador {
 
         switch (prt_asunto) {
             //Angel Oni Terceros
-            /***************************/
+            /**
+             * ************************
+             */
             //--------NRUTA-------------
-            /***************************/
+            /**
+             * ************************
+             */
             case "LISTERUTA": //metodo para listar RUTA
                 System.out.println(prt_asunto + "...\r\n");
                 NRutas n_rutas = new NRutas();
@@ -199,7 +203,6 @@ public class Manejador {
                 String res_delNRutas = delNRutas.delEmpresa(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delNRutas));
                 break;
-            
 
             //Cristhian Vargas Quiroz
             case "LISTEMPLEADOS": //metodo para listar clientes
@@ -223,7 +226,7 @@ public class Manejador {
                 String res_delEmpleado = delEmpleado.delEmpleado(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpleado));
                 break;
-                
+
             case "LISTCLIENTES": // listar todos los clientes
                 NClientes listClientes = new NClientes();
                 String res_listClientes = listClientes.listClientes(prt_parametros);
@@ -244,7 +247,7 @@ public class Manejador {
                 String res_delCliente = delCliente.delCliente(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCliente));
                 break;
-                
+
             case "LISTEMPRESAS": // listar todas las empresas
                 NEmpresas listEmpresas = new NEmpresas();
                 String res_listEmpresas = listEmpresas.listEmpresas(prt_parametros);
@@ -266,7 +269,7 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpresa));
                 break;
             //Denilson Santa Cruz
-                case "LISTCOTIZACIONES": //metodo para listar cotizaciones
+            case "LISTCOTIZACIONES": //metodo para listar cotizaciones
                 System.out.println(prt_asunto + "...\r\n");
                 NCotizaciones m_Ncotizaciones = new NCotizaciones();
                 String s_resCotizaciones = m_Ncotizaciones.listcotizaciones(prt_parametros);
@@ -287,7 +290,7 @@ public class Manejador {
                 String res_delCotizacion = delCotizacion.delcotizaciones(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCotizacion));
                 break;
-                
+
             case "LISTSERVICIOS": // listar todos los servicios
                 NServices listServices = new NServices();
                 String res_listServices = listServices.listservices(prt_parametros);
@@ -309,7 +312,7 @@ public class Manejador {
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delService));
                 break;
             //Cristhian Vargas Quiroz
-            
+
             case "AYUDA": //metodo para comandos
                 System.out.println("La cantidad de caracteres de:" + prt_asunto.length());
                 System.out.println("la direccion origen es: " + prt_mailFrom);
@@ -322,8 +325,113 @@ public class Manejador {
                 System.out.println("el asunto del mensaje es: " + prt_asunto);
 
                 System.out.println(prt_asunto + " no existe ...\r\n");
-                String mensaje5 = "<div class='error'><strong>ERROR!!! </strong><p class='texto-error'>en la instruccion porfavor revisa  al enviado AYUDA[]; de la aplicacion</p></div>";
-                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(mensaje5));
+                String mensajeHelp = "<body>\n"
+                        + "</body>\n"
+                        + "\n"
+                        + "<table style=\"width:100%;\">\n"
+                        + "<tr bgcolor= \"#A9A9A9\"></br>\n"
+                        + "\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;\">            \n"
+                        + "                                            <h2 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;\">\n"
+                        + "                                                GRUPO\n"
+                        + "                                            </h2>\n"
+                        + "											<h2 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;\">\n"
+                        + "                                                05 SA\n"
+                        + "                                            </h2>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "</table>\n"
+                        + "\n"
+                        + "<body style=\"margin: 0 !important; padding: 0 !important; background-color: #eeeeee;\" bgcolor=\"#eeeeee\">\n"
+                        + "                \n"
+                        + "                <!-- HIDDEN PREHEADER TEXT -->\n"
+                        + "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n"
+                        + "                    <tr>\n"
+                        + "                        <td align=\"center\" style=\"background-color: #D8E7E7;\" bgcolor=\"#D8E7E7\"></br>\n"
+                        + "                        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                        + "                            \n"
+                        + "                            <tr>\n"
+                        + "                                <td align=\"center\" style=\"padding: 35px 35px 20px 35px; background-color: #ffffff;\" bgcolor=\"#ffffff\">\n"
+                        + "                                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;\">            \n"
+                        + "                                            <h2 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #0B36FA; margin: 0;\">\n"
+                        + "                                                EXPRINTER\n"
+                        + "                                            </h2>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                \n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"left\" style=\"padding-top: 20px;\">\n"
+                        + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">\n"
+                        + "                                                <tr>\n"
+                        + "                                                    <td width=\"100%\" align=\"left\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;\">\n"
+                        + "                                                        <font color=\"000000\"> ERROR DE COMANDO! "
+                        + "                                                    </td>   \n"
+                        + "                                                </tr>\n"
+                        + "                                                <tr>\n"
+                        + "                                                    <td align=\"center\" style=\" padding: 0px; background-color: #1E90FF;\" bgcolor=\"#00BFFF\">\n"
+                        + "                                                        <table align=\"center\" border=\"2\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                        + "																Error en la instruccion, porfavor revisa los comandos enviando [AYUDA] "
+                        + "                                                        </table>\n"
+                        + "                                                    </td> \n"
+                        + "                                                </tr>\n"
+                        + "                                            </table>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                                </table>\n"
+                        + "                                </td>\n"
+                        + "                            </tr>\n"
+                        + "                            <tr>\n"
+                        + "                                <td align=\"center\" style=\"padding: 35px; background-color: #ffffff;\" bgcolor=\"#ffffff\">\n"
+                        + "                                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding: 5px 0 10px 0;\">\n"
+                        + "                                            <p style=\"font-size: 14px; font-weight: 800; line-height: 18px; color: #333333;\">\n"
+                        + "                                                SISTEMA VIA MAIL\n"
+                        + "                                            </p>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;\">\n"
+                        + "                                            <p style=\"font-size: 14px; font-weight: 400; line-height: 20px; color: #777777;\">\n"
+                        + "                                                FICTT - UAGRM.\n"
+                        + "                                            </p>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                            <tr>\n"
+                        + "                            </tr>\n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px;\">\n"
+                        + "                                            <p style=\"font-size: 14px; font-weight: 400; line-height: 20px; color: #777777;\">\n"
+                        + "                                                Santa Cruz - Bolivia.\n"
+                        + "                                            </p>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                                </table>\n"
+                        + "                                </td>\n"
+                        + "                            </tr>\n"
+                        + "							\n"
+                        + "                            <tr>\n"
+                        + "                                <td align=\"center\" style=\" padding: 35px; background-color: #A9A9A9;\" bgcolor=\"#1b9ba3\">\n"
+                        + "                                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                        + "                                    <tr>\n"
+                        + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;\">\n"
+                        + "                                            <h2 style=\"font-size: 20px; font-weight: 800; line-height: 30px; color: #ffffff; margin: 0;\">\n"
+                        + "                                                TECNOLOGIA WEB\n"
+                        + "                                            </h2>\n"
+                        + "                                        </td>\n"
+                        + "                                    </tr>\n"
+                        + "                                </table>\n"
+                        + "                                </td>\n"
+                        + "                            </tr>\n"
+                        + "                        </table>\n"
+                        + "                        </td>\n"
+                        + "                    </tr>\n"
+                        + "                </table>\n"
+                        + "                    \n"
+                        + "                </body>";
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(mensajeHelp));
                 break;
         }
     }
@@ -336,77 +444,63 @@ public class Manejador {
         //cristhian vargas quiroz
         String ayudaEmpleados = "<div>\n" + "<div>\n"
                 + "<h3>COMANDOS DE EMPLEADOS</h3>\n" + "</div>\n"
-                
                 + "<strong>LISTAR EMPLEADOS :</strong>\n" + "<p>listar todo los EMPLEADOS = 0</p>\n"
                 + "<p>listar LOS EMPLEADOS</p>\n" + "<p>ListEmpleados[0]</p>\n"
                 + "<p>ejemplo: ListEmpleados[0]</p>\n"
-                
                 + "<strong>Registrar un empleado<strong>\n"
                 + "<p>REGEMPLEADOS[nombre,email,password,ci,telefono,direccion,genero,nacimiento,rol=1 o 2]</p>\n"
                 + "<strong>Ejemplo de registrar un empleado</strong>\n"
                 + "REGEMPLEADOS[Cristhian Vargas,cristhian@gmail.com,12345678,9636927,78588196,calle olimpo,M,1997-02-21,2]\n"
-                
                 + "<strong>Editar un empleado<strong>\n"
                 + "<p>EDITEMPLEADOS[id,nombre,email,ci,telefono,direccion,genero,nacimiento]</p>\n"
                 + "<strong>Ejemplo de editar un empleado</strong>\n"
                 + "<p>EDITEMPLEADOS[1,Cristhian Quiroz,criss@gmail.com,9685742,78589632,calle oliver,M,1997-02-23]</p>\n"
-                
                 + "<strong>Eliminar un empleado<strong>\n"
                 + "<p>DELEMPLEADOS[id]</p>\n"
                 + "<strong>Ejemplo de eliminar un empleado</strong>\n"
                 + "<p>DELEMPLEADOS[9]</p>\n"
-                
                 + "</div>\n"
                 + "</div>";
-        
-                String ayudaClientes = "<div>\n" + "<div>\n"
+
+        String ayudaClientes = "<div>\n" + "<div>\n"
                 + "<h3>COMANDOS DE CLIENTES</h3>\n" + "</div>\n"
-                
                 + "<strong>LISTAR CLIENTES :</strong>\n" + "<p>listar todo los CLIENTES = 0</p>\n"
                 + "<p>listar LOS CLIENTES</p>\n" + "<p>LISTCLIENTES[0]</p>\n"
                 + "<p>ejemplo: LISTCLIENTES[0]</p>\n"
-                
                 + "<strong>Registrar un cliente<strong>\n"
                 + "<p>REGCLIENTE[nombre,iniciales,cel,email,emailconf,observaciones,ejecutivo=1...,compañia=1....]</p>\n"
                 + "<strong>Ejemplo de registrar un empleado</strong>\n"
                 + "REGCLIENTE[Cristhian Vargas,CVQ,78541263,cristhian78@gmail.com,cristhian78@gmail.com,ninguna,4,2]\n"
-                
                 + "<strong>Editar un cliente<strong>\n"
                 + "<p>EDITCLIENTE[id,nombre,iniciales,cel,email,emailconf,observaciones]</p>\n"
                 + "<strong>Ejemplo de editar un cliente</strong>\n"
                 + "<p>EDITCLIENTE[5,Cristhian vasques,CVQ,78588196,cris7845@gmail.com,cris7845@gmail.com,ninguna]</p>\n"
-                
                 + "<strong>Eliminar un cliente<strong>\n"
                 + "<p>DELCLIENTE[id]</p>\n"
                 + "<strong>Ejemplo de eliminar un cliente</strong>\n"
                 + "<p>DELCLIENTE[6]</p>\n"
-                
                 + "</div>\n"
                 + "</div>";
-                
-                String ayudaEmpresa = "<div>\n" + "<div>\n"
+
+        String ayudaEmpresa = "<div>\n" + "<div>\n"
                 + "<h3>COMANDOS DE EMPRESAS</h3>\n" + "</div>\n"
-                
                 + "<strong>LISTAR EMPRESAS :</strong>\n" + "<p>listar todo las EMPRESAS = 0</p>\n"
                 + "<p>LISTAR LAS EMPRESAS</p>\n" + "<p>LISTEMPRESAS[0]</p>\n"
                 + "<p>ejemplo: LISTEMPRESAS[0]</p>\n"
-                
                 + "<strong>Registrar una empresa<strong>\n"
                 + "<p>REGEMPRESA[nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
                 + "<strong>Ejemplo de registrar un empleado</strong>\n"
                 + "REGCLIENTE[Fiambres LOLA,784512458,SA,google.com,barrio olimpo,3569856,78588196,norte,fiambres,privado]\n"
-                
                 + "<strong>Editar una empresa<strong>\n"
                 + "<p>EDITEMPRESA[id,nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
                 + "<strong>Ejemplo de editar una empresa</strong>\n"
                 + "<p>EDITEMPRESA[6,EMPRESA lola,784512548,SRL,google.com,barrio olimpo,3556985,3556985,zona sur,fiambres,privado]</p>\n"
-                
                 + "<strong>Eliminar una empresa<strong>\n"
                 + "<p>DELEMPRESA[id]</p>\n"
                 + "<strong>Ejemplo de eliminar una empresa</strong>\n"
                 + "<p>DELEMPRESA[7]</p>\n"
                 //cristhian vargas quiroz
-                
+
                 + "</div>\n"
                 + "</div>";
         return "Content-Type:text/html;\r\n<html>" + estilo + titulo + ayudaEmpleados + ayudaClientes + ayudaEmpresa + "</html>";

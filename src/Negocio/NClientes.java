@@ -26,28 +26,28 @@ public class NClientes {
             l_clientes = clientes.listClients();
             if(l_clientes.size() > 0){
                 String s_res = "<h2>Lista de empleados</h2>";
-                s_res = s_res + "<table><tr>"
-                        +"<td>Nombre</td>"
-                        +"<td>Nit</td>"
-                        +"<td>Razon social</td>"
-                        +"<td>Direccion</td>"
-                        +"<td>Telefono</td>"
-                        +"<td>Ubicacion</td>"
-                        +"<td>Contacto</td>"
-                        +"<td>Celular</td>"
-                        +"<td>Email</td>"
+                s_res = s_res + "<table border=1><tr>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nit</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Razon social</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Direccion</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Telefono</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Ubicacion</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Contacto</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Celular</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Email</th>"
                         +"</tr>";
                 for (DClientes i_clientes : l_clientes) {
                     s_res = s_res + "<tr>";
-                    s_res = s_res + "<td>" + i_clientes.getNombreC() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getNitC() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getRazonsocial() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getDireccion() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getTelf() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getUbicacion() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getNombreContact() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getCel() + "</td>";
-                    s_res = s_res + "<td>" + i_clientes.getEmail() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getNombreC() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getNitC() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getRazonsocial() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getDireccion() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getTelf() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getUbicacion() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getNombreContact() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getCel() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_clientes.getEmail() + "</td>";
                     s_res = s_res + "</tr>";
                 }
                 s_res = s_res + "</table>";

@@ -25,22 +25,22 @@ public class NCotizaciones {
             l_cotizaciones = cotizaciones.listCotizaciones();
             if(l_cotizaciones.size() > 0){
                 String s_res = "<h2>Lista de cotizaciones</h2>";
-                s_res = s_res + "<table><tr>"
-                        +"<td>Códido</td>"
-                        +"<td>Cliente</td>"
-                        +"<td>Fecha de Cotización</td>"
-                        +"<td>Ejecutivo</td>"
-                        +"<td>Tarifa</td>"
-                        +"<td>Id de Servicio</td>"
+                s_res = s_res + "<table border=1><tr>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Códido</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Cliente</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Fecha de Cotización</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Ejecutivo</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Tarifa</th>"
+                        +"<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Id de Servicio</th>"
                         +"</tr>";
                 for (DCotizaciones i_cotizaciones : l_cotizaciones) {
                     s_res = s_res + "<tr>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getCod()+ "</td>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getCliente()+ "</td>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getFechaCot()+ "</td>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getEjecutivo()+ "</td>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getTarifa()+ "</td>";
-                    s_res = s_res + "<td>" + i_cotizaciones.getIdservice()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getCod()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getCliente()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getFechaCot()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getEjecutivo()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getTarifa()+ "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_cotizaciones.getIdservice()+ "</td>";
                     s_res = s_res + "</tr>";
                 }
                 s_res = s_res + "</table>";
