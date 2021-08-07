@@ -26,26 +26,24 @@ public class NEmpresas {
             l_empresas = empresa.listEmpresa();
             if(l_empresas.size() > 0){
                 String s_res = "<h2>Lista de empresas</h2>";
-                s_res = s_res + "<table><tr>"
-                        + "<td>Nombre</td>"
-                        + "<td>NIT</td>"
-                        + "<td>Razon social</td>"
-                        + "<td>Direccion</td>"
-                        + "<td>Telefono</td>"
-                        + "<td>Ubicacion</td>"
-                        + "<td>Sector</td>"
-                        + "<td>Tipo de empresa</td>"
+                s_res = s_res + "<table border=1><tr>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">NIT</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Razon social</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Direccion</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Ubicacion</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Sector</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Tipo de empresa</th>"
                         +"</tr>";
                 for(DEmpresa i_empresas : l_empresas){
                     s_res = s_res + "<tr>";
-                    s_res = s_res + "<td>" + i_empresas.getNombre() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getNit() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getRazonsocial() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getDireccion() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getTelf() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getUbicacion() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getSector() + "</td>";
-                    s_res = s_res + "<td>" + i_empresas.getTipo() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getNombre() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getNit() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getRazonsocial() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getDireccion() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getUbicacion() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getSector() + "</td>";
+                    s_res = s_res + "<td align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_empresas.getTipo() + "</td>";
                     s_res = s_res + "</tr>";
                 }
                 s_res = s_res + "</table>";
