@@ -3,29 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Negocio/NCotizaciones.java</file>
+            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Negocio/NStatusRuta.java</file>
+            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Negocio/NApertura.java</file>
+            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Datos/DRutas.java</file>
             <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Presentacion/Grupo05saMail.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/tecnologias%20web/primer%20proyecto/PrimerParcial/src/Presentacion/PopMessage.java</file>
-            <file>file:/D:/tecnologias%20web/primer%20proyecto/PrimerParcial/src/Presentacion/Grupo05saMail.java</file>
-            <file>file:/D:/tecnologias%20web/primer%20proyecto/PrimerParcial/src/Presentacion/Manejador.java</file>
-            <file>file:/D:/tecnologias%20web/primer%20proyecto/PrimerParcial/src/Presentacion/SMTPMessage.java</file>
-            <file>file:/D:/tecnologias%20web/primer%20proyecto/PrimerParcial/src/libs/Fshared.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/E:/TECNOLOGIA%20WEB/PrimerParcial/primerParcialtecno/src/Datos/DEmpresa.java</file>
-            <file>file:/E:/TECNOLOGIA%20WEB/PrimerParcial/primerParcialtecno/src/Datos/DServices.java</file>
-            <file>file:/E:/TECNOLOGIA%20WEB/PrimerParcial/primerParcialtecno/src/Datos/DClientes.java</file>
-=======
-            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Datos/DAperturas.java</file>
             <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Negocio/NRutas.java</file>
             <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Presentacion/Manejador.java</file>
-            <file>file:/D:/Semestre/Semestre%209/Tecnologia%20Web/mail_primer_parcial/primerParcialtecno/src/Presentacion/Grupo05saMail.java</file>
->>>>>>> 7d1a5952e5f026fa0ec00ef1cd189a7881777be3
->>>>>>> b261ed0a537912ea0aec834ce8fa81a7daa018b5
->>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

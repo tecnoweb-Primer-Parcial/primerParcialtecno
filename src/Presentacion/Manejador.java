@@ -12,11 +12,9 @@ import Negocio.NClientes;
 import Negocio.NEmpresas;
 import Negocio.NCotizaciones;
 import Negocio.NServices;
-<<<<<<< HEAD
 import Negocio.NReporte;
-=======
 import Negocio.NStatusRuta;
->>>>>>> e6cd2883b46122da5fb9dcf6153a89106bd19ee5
+
 
 import java.io.IOException;
 import java.util.List;
