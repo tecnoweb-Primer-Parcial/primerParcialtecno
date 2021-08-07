@@ -58,6 +58,8 @@ public class NCotizaciones {
         cotizaciones.setEjecutivo(parametros[3]);
         cotizaciones.setTarifa(Integer.parseInt(parametros[4]));
         cotizaciones.setIdservice(Integer.parseInt(parametros[5]));
+        cotizaciones.setIdStatus(Integer.parseInt(parametros[6]));
+        cotizaciones.setIdcom(Integer.parseInt(parametros[7]));
         boolean b_res = cotizaciones.regCotizaciones();
         if(b_res){
             return successMessage("Registro de cotizaciones correcto");
@@ -68,9 +70,10 @@ public class NCotizaciones {
     public String editcotizaciones(String[] parametros){
         cotizaciones.setId(Integer.parseInt(parametros[0]));
         cotizaciones.setCod(parametros[1]);
-        cotizaciones.setFechaCot(parametros[2]);
-        cotizaciones.setEjecutivo(parametros[3]);
-        cotizaciones.setTarifa(Integer.parseInt(parametros[4]));
+        cotizaciones.setCliente(parametros[2]);
+        cotizaciones.setFechaCot(parametros[3]);
+        cotizaciones.setEjecutivo(parametros[4]);
+        cotizaciones.setTarifa(Integer.parseInt(parametros[5]));
         
         boolean b_res = cotizaciones.editCotizaciones();
         if(b_res){

@@ -37,7 +37,7 @@ public class SMTPMessage {
     public void sendMessage(String fromTo, String rcptTo, String subject, String message) {
         try {
             System.out.println(entrada.readLine());
-            salida.writeBytes("HELO mail.tecnoweb.org.bo\r\n");
+            salida.writeBytes("EHLO mail.tecnoweb.org.bo\r\n");
             // System.out.println("ccc1 "+entrada.readLine());
             // System.out.println("ccc1 "+leerLineas(entrada));
             entrada.readLine();
