@@ -9,6 +9,8 @@ import Negocio.NEmpleados;
 import Negocio.NRutas;
 import Negocio.NClientes;
 import Negocio.NEmpresas;
+import Negocio.NCotizaciones;
+import Negocio.NServices;
 
 import java.io.IOException;
 import java.util.List;
@@ -262,6 +264,49 @@ public class Manejador {
                 NEmpresas delEmpresa = new NEmpresas();
                 String res_delEmpresa = delEmpresa.delEmpresa(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delEmpresa));
+                break;
+            //Denilson Santa Cruz
+                case "LISTCOTIZACIONES": //metodo para listar cotizaciones
+                System.out.println(prt_asunto + "...\r\n");
+                NCotizaciones m_Ncotizaciones = new NCotizaciones();
+                String s_resCotizaciones = m_Ncotizaciones.listcotizaciones(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(s_resCotizaciones));
+                break;
+            case "REGCOTIZACIONES": // REGISTRAR COTIZACIONES
+                NCotizaciones regCotizaciones = new NCotizaciones();
+                String res_regCotizaciones = regCotizaciones.regcotizaciones(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regCotizaciones));
+                break;
+            case "EDITCOTIZACIONES": // editar una cotizacion
+                NCotizaciones editCotizacion = new NCotizaciones();
+                String res_editCotizacion = editCotizacion.editcotizaciones(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editCotizacion));
+                break;
+            case "DELCOTIZACION": // eliminar una cotizacion
+                NCotizaciones delCotizacion = new NCotizaciones();
+                String res_delCotizacion = delCotizacion.delcotizaciones(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delCotizacion));
+                break;
+                
+            case "LISTSERVICIOS": // listar todos los servicios
+                NServices listServices = new NServices();
+                String res_listServices = listServices.listservices(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_listServices));
+                break;
+            case "REGSERVICIO": // registrar un nuevo servicio
+                NServices regServices = new NServices();
+                String res_regServices = regServices.regservices(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_regServices));
+                break;
+            case "EDITSERVICIO": // editar un servicio
+                NServices editService = new NServices();
+                String res_editService = editService.editservices(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_editService));
+                break;
+            case "DELSERVICIO": // eliminar un servicio
+                NServices delService = new NServices();
+                String res_delService = delService.delservices(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delService));
                 break;
             //Cristhian Vargas Quiroz
             
