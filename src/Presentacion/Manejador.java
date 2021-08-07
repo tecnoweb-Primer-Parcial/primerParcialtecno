@@ -277,7 +277,7 @@ public class Manejador {
                 System.out.println("el asunto del mensaje es: " + prt_asunto);
 
                 System.out.println(prt_asunto + " no existe ...\r\n");
-                String mensaje5 = "<div class='error'><strong>ERROR!!! </strong><p class='texto-error'>en la instruccion porfavor revisa  al enviado COMANDOS[]; de la aplicacion</p></div>";
+                String mensaje5 = "<div class='error'><strong>ERROR!!! </strong><p class='texto-error'>en la instruccion porfavor revisa  al enviado AYUDA[]; de la aplicacion</p></div>";
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(mensaje5));
                 break;
         }
