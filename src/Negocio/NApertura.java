@@ -27,27 +27,27 @@ public class NApertura {
             if(l_aperturas.size() > 0){
 
                 String s_res = "<h2>Lista de Apertura Contable</h2>";
-                s_res += "<table><tr>"
-                        + "<th>ID</th>"
-                        + "<th>Codigo</th>"
-                        + "<th>Fecha Inicio</th>"
-                        + "<th>Fecha Fin</th>"
-                        + "<th>Comentario</th>"
-                        + "<th>ID Cotizacion</th>"
-                        + "<th>Codigo</th>"
-                        + "<th>Cliente</th>"
+                s_res += "<table border=1><tr>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Codigo</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Fecha Inicio</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Fecha Fin</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Comentario</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID Cotizacion</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Codigo</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Cliente</th>"
                         +"</tr>";
 
                 for(DAperturas i_apertura : l_aperturas){
                     s_res += "<tr>";
-                    s_res += "<th>" + i_apertura.getId() + "</th>";
-                    s_res += "<th>" + i_apertura.getCodigo()+ "</th>";
-                    s_res += "<th>" + i_apertura.getFechaIni()+ "</th>";
-                    s_res += "<th>" + i_apertura.getFechaFin()+ "</th>";
-                    s_res += "<th>" + i_apertura.getComentario()+ "</th>";
-                    s_res += "<th>" + i_apertura.getIdCotizacion()+ "</th>";
-                    s_res += "<th>" + i_apertura.getCodCotizacion()+ "</th>";
-                    s_res += "<th>" + i_apertura.getCliente()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getId() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getCodigo()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getFechaIni()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getFechaFin()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getComentario()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getIdCotizacion()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getCodCotizacion()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_apertura.getCliente()+ "</th>";
                     s_res += "</tr>";
                 }
                 s_res += "</table>";

@@ -14,10 +14,6 @@ import Negocio.NCotizaciones;
 import Negocio.NServices;
 import Negocio.NReporte;
 import Negocio.NStatusRuta;
-<<<<<<< HEAD
-
-=======
->>>>>>> 360e4d0f274b7e0ce9a0b6afa20815fcfdb1de89
 
 import java.io.IOException;
 import java.util.List;

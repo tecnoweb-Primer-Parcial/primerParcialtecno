@@ -27,25 +27,25 @@ public class NStatusRuta {
             if(l_status_rutas.size() > 0){
 
                 String s_res = "<h2>Lista del Estado de la Ruta</h2>";
-                s_res += "<table><tr>"
-                        + "<th>ID</th>"
-                        + "<th>ID Ruta</th>"
-                        + "<th>Nombre Ruta</th>"
-                        + "<th>ID Cotizacion</th>"
-                        + "<th>Codigo Cotizacion</th>"
-                        + "<th>Cliente</th>"
-                        + "<th>Estado Ruta</th>"
+                s_res += "<table border=1><tr>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID Ruta</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Nombre Ruta</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">ID Cotizacion</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Codigo Cotizacion</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Cliente</th>"
+                        + "<th align=\"center\"valign=\"top\"  bgcolor=\"#7FFFD4\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">Estado Ruta</th>"
                         +"</tr>";
 
                 for(DStatus_ruta i_ruta : l_status_rutas){
                     s_res += "<tr>";
-                    s_res += "<th>" + i_ruta.getId() + "</th>";
-                    s_res += "<th>" + i_ruta.getIdRutas()+ "</th>";
-                    s_res += "<th>" + i_ruta.getNombreRuta() + "</th>";
-                    s_res += "<th>" + i_ruta.getIdCotizacion() + "</th>";
-                    s_res += "<th>" + i_ruta.getCod() + "</th>";
-                    s_res += "<th>" + i_ruta.getCliente() + "</th>";
-                    s_res += "<th>" + i_ruta.getEstadoRuta() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getId() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getIdRutas()+ "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getNombreRuta() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getIdCotizacion() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getCod() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getCliente() + "</th>";
+                    s_res += "<th align=\"center\" bgcolor=\"#FFF8DC\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 5px 5px 5px;\">" + i_ruta.getEstadoRuta() + "</th>";
                     s_res += "</tr>";
                 }
                 s_res += "</table>";
