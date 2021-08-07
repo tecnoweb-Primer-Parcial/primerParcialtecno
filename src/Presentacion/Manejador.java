@@ -11,6 +11,7 @@ import Negocio.NClientes;
 import Negocio.NEmpresas;
 import Negocio.NCotizaciones;
 import Negocio.NServices;
+import Negocio.NReporte;
 
 import java.io.IOException;
 import java.util.List;
@@ -311,6 +312,17 @@ public class Manejador {
                 String res_delService = delService.delservices(prt_parametros);
                 enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_delService));
                 break;
+            case "REPORTE": //GENERA UN REPORTE
+                NReporte listReporte = new NReporte();
+                String res_listReporte = listReporte.generarReporte(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_listReporte));
+                break;
+            case "REPORTEDATE":
+                NReporte listReporteDate = new NReporte();
+                String res_lisReporteDate = listReporteDate.generarReporteDate(prt_parametros);
+                enviarMensajeCorreoOrigen(prt_mailFrom, prt_asunto, getMensajeRespuesta(res_lisReporteDate));
+                break;
+                
             //Cristhian Vargas Quiroz
 
             case "AYUDA": //metodo para comandos
@@ -437,84 +449,224 @@ public class Manejador {
     }
 
     public String getMensajeAyuda() {
-        String estilo = "<link>";
         String titulo = "<div>\n"
                 + " <h2>Comandos de la aplicacion EXPRINTER</h2>\n"
                 + "</div>";
-        //cristhian vargas quiroz
-        String ayudaEmpleados = "<div>\n" + "<div>\n"
-                + "<h3>COMANDOS DE EMPLEADOS</h3>\n" + "</div>\n"
-                + "<strong>LISTAR EMPLEADOS :</strong>\n" + "<p>listar todo los EMPLEADOS = 0</p>\n"
-                + "<p>listar LOS EMPLEADOS</p>\n" + "<p>ListEmpleados[0]</p>\n"
-                + "<p>ejemplo: ListEmpleados[0]</p>\n"
-                + "<strong>Registrar un empleado<strong>\n"
-                + "<p>REGEMPLEADOS[nombre,email,password,ci,telefono,direccion,genero,nacimiento,rol=1 o 2]</p>\n"
-                + "<strong>Ejemplo de registrar un empleado</strong>\n"
-                + "REGEMPLEADOS[Cristhian Vargas,cristhian@gmail.com,12345678,9636927,78588196,calle olimpo,M,1997-02-21,2]\n"
-                + "<strong>Editar un empleado<strong>\n"
-                + "<p>EDITEMPLEADOS[id,nombre,email,ci,telefono,direccion,genero,nacimiento]</p>\n"
-                + "<strong>Ejemplo de editar un empleado</strong>\n"
-                + "<p>EDITEMPLEADOS[1,Cristhian Quiroz,criss@gmail.com,9685742,78589632,calle oliver,M,1997-02-23]</p>\n"
-                + "<strong>Eliminar un empleado<strong>\n"
-                + "<p>DELEMPLEADOS[id]</p>\n"
-                + "<strong>Ejemplo de eliminar un empleado</strong>\n"
-                + "<p>DELEMPLEADOS[9]</p>\n"
-                + "</div>\n"
-                + "</div>";
-
-        String ayudaClientes = "<div>\n" + "<div>\n"
-                + "<h3>COMANDOS DE CLIENTES</h3>\n" + "</div>\n"
-                + "<strong>LISTAR CLIENTES :</strong>\n" + "<p>listar todo los CLIENTES = 0</p>\n"
-                + "<p>listar LOS CLIENTES</p>\n" + "<p>LISTCLIENTES[0]</p>\n"
-                + "<p>ejemplo: LISTCLIENTES[0]</p>\n"
-                + "<strong>Registrar un cliente<strong>\n"
-                + "<p>REGCLIENTE[nombre,iniciales,cel,email,emailconf,observaciones,ejecutivo=1...,compañia=1....]</p>\n"
-                + "<strong>Ejemplo de registrar un empleado</strong>\n"
-                + "REGCLIENTE[Cristhian Vargas,CVQ,78541263,cristhian78@gmail.com,cristhian78@gmail.com,ninguna,4,2]\n"
-                + "<strong>Editar un cliente<strong>\n"
-                + "<p>EDITCLIENTE[id,nombre,iniciales,cel,email,emailconf,observaciones]</p>\n"
-                + "<strong>Ejemplo de editar un cliente</strong>\n"
-                + "<p>EDITCLIENTE[5,Cristhian vasques,CVQ,78588196,cris7845@gmail.com,cris7845@gmail.com,ninguna]</p>\n"
-                + "<strong>Eliminar un cliente<strong>\n"
-                + "<p>DELCLIENTE[id]</p>\n"
-                + "<strong>Ejemplo de eliminar un cliente</strong>\n"
-                + "<p>DELCLIENTE[6]</p>\n"
-                + "</div>\n"
-                + "</div>";
-
-        String ayudaEmpresa = "<div>\n" + "<div>\n"
-                + "<h3>COMANDOS DE EMPRESAS</h3>\n" + "</div>\n"
-                + "<strong>LISTAR EMPRESAS :</strong>\n" + "<p>listar todo las EMPRESAS = 0</p>\n"
-                + "<p>LISTAR LAS EMPRESAS</p>\n" + "<p>LISTEMPRESAS[0]</p>\n"
-                + "<p>ejemplo: LISTEMPRESAS[0]</p>\n"
-                + "<strong>Registrar una empresa<strong>\n"
-                + "<p>REGEMPRESA[nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
-                + "<strong>Ejemplo de registrar un empleado</strong>\n"
-                + "REGCLIENTE[Fiambres LOLA,784512458,SA,google.com,barrio olimpo,3569856,78588196,norte,fiambres,privado]\n"
-                + "<strong>Editar una empresa<strong>\n"
-                + "<p>EDITEMPRESA[id,nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]</p>\n"
-                + "<strong>Ejemplo de editar una empresa</strong>\n"
-                + "<p>EDITEMPRESA[6,EMPRESA lola,784512548,SRL,google.com,barrio olimpo,3556985,3556985,zona sur,fiambres,privado]</p>\n"
-                + "<strong>Eliminar una empresa<strong>\n"
-                + "<p>DELEMPRESA[id]</p>\n"
-                + "<strong>Ejemplo de eliminar una empresa</strong>\n"
-                + "<p>DELEMPRESA[7]</p>\n"
-                //cristhian vargas quiroz
-
-                + "</div>\n"
-                + "</div>";
-        return "Content-Type:text/html;\r\n<html>" + estilo + titulo + ayudaEmpleados + ayudaClientes + ayudaEmpresa + "</html>";
+        String body = "<table style=\"width:100%;\">\n"
+                + "<tr bgcolor= \"#000000\">\n"
+                + "<td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;\">            \n"
+                + "                                            <h2 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #FFFFFF; margin: 0;\">\n"
+                + "                                                GRUPO\n"
+                + "                                            </h2>\n"
+                + "                                             <h2 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #FFFFFF; margin: 0;\">\n"
+                + "                                                05 SA\n"
+                + "                                            </h2>\n"
+                + "</td>\n"
+                + "</tr>\n"
+                + "</table>";
+        String cad = "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n"
+                + "                    <tr>\n"
+                + "                        <td align=\"center\" style=\"background-color: #E3E3E3;\" bgcolor=\"#E3E3E3\">\n"
+                + "                        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                + "                            <tr>\n"
+                + "                                <td align=\"center\" valign=\"top\" style=\"font-size:0; padding: 35px;\" bgcolor=\"#E3E3E3\">\n"
+                + "                                <div style=\"display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;\">\n"
+                + "                                    <table align=\"left\" border-radius=\"20px\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:300px;\">\n"
+                + "                                        <tr>\n"
+                + "                                            <td align=\"center\" valign=\"middle\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;\" class=\"mobile-center\">\n"
+                + "                                                <h1 style=\"font-size: 36px; font-weight: 800; margin: 0; color: #2F4F4F;\">SISTEMA MAIL EXPRINTER</h1>\n"
+                + "                                            </td>\n"
+                + "                                             <head>\n"
+                + "                                              <script src=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js\" integrity=\"sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>\"\n"
+                + "                                             </head>\n"
+                + "                                            </tr>\n"
+                + "                                    </table>\n"
+                + "                                </div>\n"
+                + "                                </td>\n"
+                + "                            </tr>\n"
+                + "                            <tr>\n"
+                + "                                <td align=\"center\" style=\"padding: 35px 35px 20px 35px; background-color: #E3E3E3;\" bgcolor=\"#E3E3E3\">\n"
+                + "                                <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"max-width:600px;\">\n"
+                + "                                    <tr>\n"
+                + "                                        <td align=\"center\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;\">            \n"
+                + "                                            <h3 style=\"font-size: 30px; font-weight: 800; line-height: 36px; color: #FFFFFF; margin: 0;\">\n"
+                + "                                                Comandos de Ayuda para poder interactuar con el Sistema Mail de EXPRINTER\n"
+                + "                                            </h3>\n"
+                + "                                        </td>\n"
+                + "                                    </tr>\n";
+        String empleadosHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR EMPLEADOS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR EMPLEADOS:<br><br>\n"
+                + "                                                        LISTEMPLEADOS[0] PARA LISTAR TODOS LOS EMPLEADOS <br>\n"
+                + "                                                        REGISTRAR EMPLEADO:<br><br>\n"
+                + "                                                        PARA REGISTRAR UN EMPLEADO DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGEMPLEADOS[nombre,email,password,ci,telefono,direccion,genero,nacimiento,rol=1 o 2]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGEMPLEADOS[Cristhian Vargas,cristhian@gmail.com,12345678,9636927,78588196,calle olimpo,M,1997-02-21,2] <br><br>"
+                + "                                                        EDITAR EMPLEADO:<br><br>\n"
+                + "                                                        PARA EDITAR UN EMPLEADO DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITEMPLEADOS[id,nombre,email,ci,telefono,direccion,genero,nacimiento]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITEMPLEADO[1,Cristhian Quiroz,criss@gmail.com,9685742,78589632,calle oliver,M,1997-02-23]<br><br>"
+                + "                                                        Eliminar un empleado:<br><br>"
+                + "                                                        DELEMPLEADOS[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELEMPLEADOS[4]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        String clientesHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR CLIENTES \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR CLIENTES:<br><br>\n"
+                + "                                                        LISTCLIENTES[0] PARA LISTAR TODOS LOS CLIENTES <br>\n"
+                + "                                                        REGISTRAR CLIENTE:<br><br>\n"
+                + "                                                        PARA REGISTRAR UN CLIENTE DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGCLIENTE[nombre,iniciales,cel,email,emailconf,observaciones,ejecutivo=1...,compañia=1....]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGCLIENTE[Cristhian Vargas,CVQ,78541263,cristhian78@gmail.com,cristhian78@gmail.com,ninguna,4,2] <br><br>"
+                + "                                                        EDITAR CLIENTE:<br><br>\n"
+                + "                                                        PARA EDITAR UN CLIENTE DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITCLIENTE[id,nombre,iniciales,cel,email,emailconf,observaciones]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITCLIENTE[5,Cristhian vasques,CVQ,78588196,cris7845@gmail.com,cris7845@gmail.com,ninguna]<br><br>"
+                + "                                                        Eliminar un cliente:<br><br>"
+                + "                                                        DELCLIENTE[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELCLIENTE[4]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        String empresaHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR EMPRESAS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR EMPRESAS:<br><br>\n"
+                + "                                                        LISTEMPRESAS[0] PARA LISTAR TODAS LAS EMPRESAS <br>\n"
+                + "                                                        REGISTRAR EMPRESA:<br><br>\n"
+                + "                                                        PARA REGISTRAR UNA EMPRESA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGEMPRESA[nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGEMPRESA[Fiambres LOLA,784512458,SA,google.com,barrio olimpo,3569856,78588196,norte,fiambres,privado] <br><br>"
+                + "                                                        EDITAR EMPRESA:<br><br>\n"
+                + "                                                        PARA EDITAR UNA EMPRESA DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITEMPRESA[id,nombre,NIT,razonSocial,sitioWeb,direccion,telefono,fax,ubicacion,sector,tipo]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITEMPRESA[6,EMPRESA lola,784512548,SRL,google.com,barrio olimpo,3556985,3556985,zona sur,fiambres,privado]<br><br>"
+                + "                                                        Eliminar una empresa:<br><br>"
+                + "                                                        DELEMPRESA[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELEMPRESA[4]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        
+        String cotizacionesHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR COTIZACIONES \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR COTIZACIONES:<br><br>\n"
+                + "                                                        LISTCOTIZACIONES[0] PARA LISTAR TODAS LAS EMPRESAS <br>\n"
+                + "                                                        REGISTRAR COTIZACION:<br><br>\n"
+                + "                                                        PARA REGISTRAR UNA COTIZACION DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGCOTIZACIONES[codigo,cliente,fecha cotizacion,ejecutivo,tarifa,servicio,estado,empresa]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGCOTIZACIONES[OMX-248,CLASS MASTER,2021-08-21,Kelly escobar,5000,1,2,2] <br><br>"
+                + "                                                        EDITAR COTIZACION:<br><br>\n"
+                + "                                                        PARA EDITAR UNA COTIZACION DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITCOTIZACIONES[id,codigo,fecha,ejecutivo,tarifa]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITCOTIZACIONES[3,OMN*518,2021-07-22,Kelly Escobar,3500]<br><br>"
+                + "                                                        Eliminar una cotizacion:<br><br>"
+                + "                                                        DELCOTIZACION[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELCOTIZACION[4]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        String serviciosHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GESTIONAR SERVICIOS \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        LISTAR SERVICIOS:<br><br>\n"
+                + "                                                        LISTSERVICIOS[0] PARA LISTAR TODOS LOS SERVICIOS <br>\n"
+                + "                                                        REGISTRAR SERVICIO:<br><br>\n"
+                + "                                                        PARA REGISTRAR UN SERVICIO DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        REGSERVICIO[nombre,codigo,descripcion,estado]<br><br>"
+                + "                                                        EJEMPLO:<br>\n"
+                + "                                                        REGSERVICIO[Mudanzas 2,OMI,solo en la ciudad] <br><br>"
+                + "                                                        EDITAR SERVICIO:<br><br>\n"
+                + "                                                        PARA EDITAR UN SERVICIO DEBE CONTENER LOS SIGUIENTES DATOS:<br><br>\n"
+                + "                                                        EDITSERVICIO[id,nombre,codigo,descripcion]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                + "                                                        EDITSERVICIO[5,mudanza,OML,solo ciudad]<br><br>"
+                + "                                                        Eliminar una SERVICIO:<br><br>"
+                + "                                                        DELSERVICIO[id]<br><br>"
+                + "                                                        EJEMPLO:<br>"
+                +                                                          "DELSERVICIO[5]<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+        String reporteHelp = "                          <tr>\n"
+                + "                                        <td align=\"left\" style=\"padding-top: 20px; \"background-color: #FF8000;\">\n"
+                + "                                            <table cellspacing=\"0\" cellpadding=\"0\" border=\"4\" background-color: #FF8000;\" width=\"100%\">\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\"  background-color: #00CED1;\" bgcolor=\"#000000\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;\">\n"
+                + "                                                GENERAR REPORTES \n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n"
+                + "                                                <tr>\n"
+                + "                                                    <td width=\"100%\" align=\"left\" background-color: #FFFAF0;\" bgcolor=\" #FFFAF0\" style=\"font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;\">\n"
+                + "                                                        <br>"
+                + "                                                        GENERAR REPORTE:<br><br>\n"
+                + "                                                        REPORTE[0] PARA MOSTRAR UN REPORTE DE COTIZACIONES POR EJECUTIVO <br>\n"
+                + "                                                        GENERAR REPORTE POR FECHA:<br><br>\n"
+                + "                                                        REPORTEDATE[2021-06-17. 2021-07-08] PARA MOSTRAR UN REPORTE DEL SISTEMA MAIL<br>\n"
+                + "                                                    </td>\n"
+                + "                                                </tr>\n";
+                
+        return "Content-Type:text/html;\r\n<html>" + titulo + body + cad + empleadosHelp + clientesHelp + empresaHelp + cotizacionesHelp + serviciosHelp +  "</tr></td></table></table></table>" + "</html>";
     }
 
     public String getMensajeTabla(String res) {
-        String estilo = "<link rel='stylesheet' href='https://codepen.io/ingyas/pen/NENBOm.css'>";
-        return "Content-Type:text/html;\r\n<html>" + estilo + res + "</html>";
+        return "Content-Type:text/html;\r\n<html>" + res + "</html>";
 
     }
 
     public String getMensajeRespuesta(String res) {
-
-        String estilo = "<link rel='stylesheet' href='https://codepen.io/ingyas/pen/NENBOm.css'>";
-        return "Content-Type:text/html;\r\n<html>" + estilo + res + "</html>";
+        return "Content-Type:text/html;\r\n<html>" + res + "</html>";
     }
 }
